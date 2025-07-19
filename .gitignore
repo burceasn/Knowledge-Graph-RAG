@@ -1,0 +1,13 @@
+# 忽略 source 文件夹下的所有内容 (*)
+source/*
+
+# 但是，不要忽略 .gitkeep 文件，这是一个例外规则 (!)
+!source/.gitkeep
+
+# 对 data 文件夹也应用相同的规则
+data/*
+!data/.gitkeep
+
+# 忽略 Python 自动生成的缓存文件
+__pycache__/
+*.pyc
