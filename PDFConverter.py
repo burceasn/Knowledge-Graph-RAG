@@ -118,10 +118,10 @@ class TEIParser:
         authors = []
         author_elements = header.findall('.//tei:author', self.ns)
         for author_element in author_elements:
-            forenames = [name.text for name in author_element.findall('.//tei:forename', self.ns)]
+            forenames = [name.text for name in author_element.findall('.//tei:forename', self.ns) if name.text]
             surname_element = author_element.find('.//tei:surname', self.ns)
             surname = surname_element.text if surname_element is not None else ""
-            full_name = ' '.join(forenames) + ' ' + surname
+            full_name = ' '.join(forenames) + (' ' + surname if surname else '')
             authors.append(full_name.strip())
         affiliations = []
         unique_affiliations = set()
