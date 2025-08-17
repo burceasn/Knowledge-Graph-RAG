@@ -28,7 +28,12 @@ class Entity:
     
     def to_dict(self) -> Dict[str, Any]:
         """Converts the Entity object to a dictionary."""
-        return {"id": self._id, "name": self.name, "field": self.field, "description": self.description}
+        return {
+                "id": self._id, 
+                "name": self.name, 
+                "field": self.field, 
+                "description": self.description
+            }
 
     def to_json(self, indent: int = 4) -> str:
         """Converts the Entity object to a JSON string."""
@@ -112,7 +117,7 @@ class Author:
         return f"Author(Name: {self.Name}\nEmail: {self.Email or 'N/A'})"
 
 
-class Affilation:
+class Affiliation:
     """Represents an affiliation, such as a university or research institution."""
     def __init__(self, name: str):
         """
@@ -124,7 +129,7 @@ class Affilation:
         self.Name: str = name
 
     def __eq__(self, other):
-        return isinstance(other, Affilation) and self.Name == other.Name
+        return isinstance(other, Affiliation) and self.Name == other.Name
     
     def __hash__(self):
         return hash(self.Name)

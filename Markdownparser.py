@@ -13,7 +13,7 @@ class MDParser:
         """
         # 使用 mistune v2+ 的标准方式创建解析器
         self.parser = mistune.create_markdown(renderer='ast')
-        self.ast = self.parser(markdown_content)
+        self.ast = self.parser(markdown_content) # type: ignore[assignment]
 
     def _get_text_from_children(self, children: List[Dict[str, Any]]) -> str:
         """
@@ -37,10 +37,10 @@ class MDParser:
         search_title = title.strip().lower()
         for i, node in enumerate(self.ast):
             # --- 核心修复 1: 检查 'attrs' 中的 'level' ---
-            node_attrs = node.get('attrs', {})
+            node_attrs = node.get('attrs', {}) # type: ignore[assignment]
             node_level = node_attrs.get('level')
 
-            if node.get('type') == 'heading':
+            if node.get('type') == 'heading': # type: ignore[assignment]
                 # 如果指定了 level，但节点级别不匹配，则跳过
                 if level is not None and node_level != level:
                     continue
@@ -48,15 +48,15 @@ class MDParser:
                 # --- 核心修复 2: 使用新的辅助方法从 'children' 重建标题文本 ---
                 full_heading_text = ""
                 if 'children' in node:
-                    full_heading_text = self._get_text_from_children(node['children']).strip().lower()
+                    full_heading_text = self._get_text_from_children(node['children']).strip().lower() # type: ignore[assignment]
 
                 # 如果不提供标题，则匹配该级别的第一个标题
                 if not search_title:
                     if node_level is not None:
-                         return node, i
+                         return node, i # type: ignore[assignment]
                 # 如果提供了标题，则进行精确匹配
-                elif full_heading_text == search_title:
-                    return node, i
+                elif full_heading_text == search_title: 
+                    return node, i # type: ignore[assignment]
         return None, -1
 
     def _reconstruct_text_from_nodes(self, nodes: List[Dict[str, Any]]) -> str:
@@ -102,8 +102,8 @@ class MDParser:
         for i in range(start_index + 1, len(self.ast)):
             node = self.ast[i]
             # 同样需要检查 attrs['level']
-            node_level = node.get('attrs', {}).get('level')
-            if node.get('type') == 'heading' and node_level is not None and node_level <= heading_level:
+            node_level = node.get('attrs', {}).get('level') # type: ignore[assignment]
+            if node.get('type') == 'heading' and node_level is not None and node_level <= heading_level:  # type: ignore[assignment]
                 break
             content_nodes.append(node)
         return self._reconstruct_text_from_nodes(content_nodes)
