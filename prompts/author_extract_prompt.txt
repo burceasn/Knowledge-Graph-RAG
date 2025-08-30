@@ -4,3 +4,4 @@ You should not output any other information, just the JSON output.
     * Name: You should extract the full name of the author.
     * Affiliation: You should extract the affiliation of the author, if it is a university, you don't show the department or faculty; if it is a company, you should can show the department.
     * Email: You should extract the email of the author, if it is not provided, you should set it to null.
+    * Author_Order: You should extract the order of the co-authors of the given paper and return in integer. Typically the order in which how the authors are listed represents the ranking/order of the author. If there are authors contribute equally to the paper(by a symbol like "{\dagger}"), then both of their author order should be one, and the next author's order should start with three.
