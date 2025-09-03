@@ -104,8 +104,8 @@ class AuthorCoauthorEdge(BaseEdge):
         """添加一篇新的共同撰写的论文。"""
         if 'coauthored_paper_list' not in self.attributes:
             self.attributes['coauthored_paper_list'] = []
-        if new_paper not in self.attributes['coauthored_papers']:
-            self.attributes['coauthored_papers'].append(new_paper)
+        if new_paper not in self.attributes['coauthored_paper_list']:
+            self.attributes['coauthored_paper_list'].append(new_paper)
 
 
 # 这个edge感觉关心的人比较少, 简单处理了
@@ -169,6 +169,6 @@ class AffiliationCollaborationEdge(BaseEdge):
         """添加一篇新的合作论文。"""
         if 'collaboration_paper_list' not in self.attributes:
             self.attributes['collaboration_paper_list'] = []
-        if new_paper not in self.attributes['collaboration_papers']:
-            self.attributes['collaboration_papers'].append(new_paper)
+        if new_paper not in self.attributes['collaboration_paper_list']:
+            self.attributes['collaboration_paper_list'].append(new_paper)
             
