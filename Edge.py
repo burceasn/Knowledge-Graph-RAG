@@ -29,30 +29,94 @@ class BaseEdge:
         self.relation = relation
         self.attributes = kwargs
 
+    def _get_node_display_name(self, node) -> str:
+        """
+        获取节点的显示名称。
+        
+        Args:
+            node: 节点对象
+            
+        Returns:
+            str: 节点的友好显示名称
+        """
+        # 根据不同的节点类型返回相应的显示名称
+        if hasattr(node, 'Name'):  # Author 和 Affiliation 都有 Name 属性
+            return node.Name
+        elif hasattr(node, 'Title'):  # Paper 有 Title 属性
+            return node.Title
+        elif hasattr(node, 'name'):  # Entity 有 name 属性
+            return node.name
+        else:
+            # 如果都没有，返回类名和ID的组合
+            return f"{node.__class__.__name__}_{getattr(node, '_id', 'unknown')}"
+
+    def _get_node_id(self, node) -> str:
+        """
+        获取节点的唯一ID。
+        
+        Args:
+            node: 节点对象
+            
+        Returns:
+            str: 节点的唯一标识符
+        """
+        if hasattr(node, '_id'):  # Author 和 Entity 有 _id
+            return str(node._id)
+        elif hasattr(node, 'Title'):  # Paper 使用 Title 作为唯一标识
+            return node.Title
+        elif hasattr(node, 'Name'):  # Affiliation 使用 Name 作为唯一标识
+            return node.Name
+        else:
+            return 'unknown'
+
     def __repr__(self) -> str:
         """返回一个可读的边表示。"""
+        source_name = self._get_node_display_name(self.source)
+        target_name = self._get_node_display_name(self.target)
         source_type = self.source.__class__.__name__
         target_type = self.target.__class__.__name__
-        return f"Edge(id={self._id}, {source_type} -[{self.relation}]-> {target_type})"
+        
+        # 提供更友好的显示格式
+        return f"Edge({source_type}:'{source_name}' -[{self.relation}]-> {target_type}:'{target_name}')"
 
     def to_dict(self) -> Dict[str, Any]:
         """将边对象序列化为字典。"""
         return {
             'id': str(self._id),
-            'source_type': self.source.__class__.__name__,
-            'target_type': self.target.__class__.__name__,
+            'source': {
+                'type': self.source.__class__.__name__,
+                'id': self._get_node_id(self.source),
+                'display_name': self._get_node_display_name(self.source)
+            },
+            'target': {
+                'type': self.target.__class__.__name__,
+                'id': self._get_node_id(self.target),
+                'display_name': self._get_node_display_name(self.target)
+            },
             'relation': f"**{self.relation}**",  # 加粗处理, 发现LLM真的理解加粗的内容
             'attributes': self.attributes
         }
 
     def to_json(self, **kwargs) -> str:
         """将边对象序列化为JSON字符串。"""
-        return json.dumps(self.to_dict(), ensure_ascii=False)
+        return json.dumps(self.to_dict(), ensure_ascii=False, **kwargs)
+
+    def get_simple_display(self) -> str:
+        """
+        获取简单的显示格式，用于快速查看边的信息。
+        
+        Returns:
+            str: 简洁的边信息描述
+        """
+        source_name = self._get_node_display_name(self.source)
+        target_name = self._get_node_display_name(self.target)
+        return f"{source_name} --{self.relation}--> {target_name}"
+
 
 #? 怎么解决不同的author和同一篇paper不同的weight --> 通过记录author的order来区分
 #! weight的算法放在之后的文件里面
 class AuthorPaperEdge(BaseEdge):
-    """定义“作者-撰写->论文”的边。"""
+    """定义"作者-撰写->论文"的边。"""
     def __init__(self, author: Author, paper: Paper, author_order: int = 0):
         super().__init__(
             source_node=author,
@@ -64,10 +128,17 @@ class AuthorPaperEdge(BaseEdge):
     
     def update_weight(self, new_weight: float):
         self.attributes['weight'] = new_weight
+    
+    def __repr__(self) -> str:
+        """覆盖父类方法，添加作者顺序信息"""
+        base_repr = super().__repr__()
+        order = self.attributes.get('author_order', 0)
+        return base_repr.replace(')', f', order={order})')
+
 
 #! 定义了一个Rank属性, 用来规范author再affiliation中的顺序, 具体算法之后规定
 class AuthorAffiliationEdge(BaseEdge):
-    """定义“作者-从属于->机构”的边。"""
+    """定义"作者-从属于->机构"的边。"""
     def __init__(self, author: Author, affiliation: Affiliation):
         super().__init__(
             source_node=author,
@@ -82,7 +153,7 @@ class AuthorAffiliationEdge(BaseEdge):
 
 
 class AuthorCoauthorEdge(BaseEdge):
-    """定义“作者-合作者->作者”的边。"""
+    """定义"作者-合作者->作者"的边。"""
     def __init__(self, author1: Author, author2: Author, coauthored_paper: Paper):      # 建立合作者关系时，必须指定一篇共同撰写的论文
         # 为避免重复，可以约定一个顺序，例如基于哈希值
         if hash(author1) > hash(author2):
@@ -104,13 +175,20 @@ class AuthorCoauthorEdge(BaseEdge):
         """添加一篇新的共同撰写的论文。"""
         if 'coauthored_paper_list' not in self.attributes:
             self.attributes['coauthored_paper_list'] = []
+        # 修正：原代码中使用了错误的key名称
         if new_paper not in self.attributes['coauthored_paper_list']:
             self.attributes['coauthored_paper_list'].append(new_paper)
+    
+    def __repr__(self) -> str:
+        """覆盖父类方法，添加合作论文数量信息"""
+        base_repr = super().__repr__()
+        paper_count = len(self.attributes.get('coauthored_paper_list', []))
+        return base_repr.replace(')', f', papers_count={paper_count})')
 
 
 # 这个edge感觉关心的人比较少, 简单处理了
 class PaperAffiliationEdge(BaseEdge):
-    """定义“论文-关联->机构”的边。"""
+    """定义"论文-关联->机构"的边。"""
     def __init__(self, paper: Paper, affiliation: Affiliation):
         super().__init__(
             source_node=paper,
@@ -121,7 +199,7 @@ class PaperAffiliationEdge(BaseEdge):
 
 # paper citation已经有很多现成的工具了, 这个就不细讲了
 class PaperCitationEdge(BaseEdge):
-    """定义“论文-引用->论文”的边。"""
+    """定义"论文-引用->论文"的边。"""
     def __init__(self, citing_paper: Paper, cited_paper: Paper):
         super().__init__(
             source_node=citing_paper,
@@ -131,7 +209,7 @@ class PaperCitationEdge(BaseEdge):
 
 
 class PaperEntityEdge(BaseEdge):
-    """定义“论文-提及->实体”的边。"""
+    """定义"论文-提及->实体"的边。"""
     def __init__(self, paper: Paper, entity: Entity):
         super().__init__(
             source_node=paper,
@@ -147,7 +225,7 @@ class PaperEntityEdge(BaseEdge):
 
 
 class AffiliationCollaborationEdge(BaseEdge):
-    """定义“机构-合作->机构”的边。"""
+    """定义"机构-合作->机构"的边。"""
     def __init__(self, affiliation1: Affiliation, affiliation2: Affiliation, collaboration_paper: Paper):
         # 为避免重复，可以约定一个顺序，例如基于哈希值
         if hash(affiliation1) > hash(affiliation2):
@@ -169,6 +247,6 @@ class AffiliationCollaborationEdge(BaseEdge):
         """添加一篇新的合作论文。"""
         if 'collaboration_paper_list' not in self.attributes:
             self.attributes['collaboration_paper_list'] = []
+        # 修正：原代码中使用了错误的key名称
         if new_paper not in self.attributes['collaboration_paper_list']:
             self.attributes['collaboration_paper_list'].append(new_paper)
-            

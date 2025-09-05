@@ -1,6 +1,7 @@
 import networkx as nx
 from typing import Dict, List, Optional, Set, Tuple
 from collections import defaultdict
+import json
 
 # Import your existing classes
 from Author_metadata import AuthorList, Author as AuthorMeta
@@ -10,7 +11,9 @@ from Edge import (
     AuthorAffiliationEdge, 
     AuthorCoauthorEdge,
     PaperAffiliationEdge,
-    AffiliationCollaborationEdge
+    AffiliationCollaborationEdge,
+    PaperCitationEdge,
+    PaperEntityEdge
 )
 
 class KnowledgeGraphBuilder:
@@ -24,6 +27,7 @@ class KnowledgeGraphBuilder:
         self.authors: Dict[str, Author] = {}  # Cache for author nodes by name
         self.affiliations: Dict[str, Affiliation] = {}  # Cache for affiliation nodes by name
         self.papers: Dict[str, Paper] = {}  # Cache for paper nodes by title
+        self.entities: Dict[str, Entity] = {}  # Cache for entity nodes by name
         self.edges: List = []  # Store all edge objects
         
     def get_or_create_author(self, name: str, email: Optional[str] = None) -> Author:
@@ -44,6 +48,7 @@ class KnowledgeGraphBuilder:
                                node_type='Author',
                                name=name, 
                                email=email,
+                               display_name=name,  # 添加显示名称
                                node_object=author)
         else:
             # Update email if provided and not already set
@@ -69,6 +74,7 @@ class KnowledgeGraphBuilder:
             self.graph.add_node(name,  # Using name as ID for affiliations
                                node_type='Affiliation',
                                name=name,
+                               display_name=name,  # 添加显示名称
                                node_object=affiliation)
         
         return self.affiliations[name]
@@ -90,17 +96,66 @@ class KnowledgeGraphBuilder:
                                title=paper.Title,
                                abstract=paper.Abstract,
                                field=paper.field,
+                               display_name=paper.Title,  # 添加显示名称
                                node_object=paper)
         
         return self.papers[paper.Title]
     
-    def process_author_list_and_paper(self, author_list: AuthorList, paper: Paper):
+    def get_or_create_entity(self, name: str, field: Optional[str] = None, 
+                            description: Optional[str] = None) -> Entity:
         """
-        Process an AuthorList and Paper to create nodes and edges.
+        Get existing entity or create new one.
         
         Args:
-            author_list: AuthorList object containing authors
-            paper: Paper object
+            name: Entity's name
+            field: Entity's field (optional)
+            description: Entity's description (optional)
+            
+        Returns:
+            Entity node object
+        """
+        if name not in self.entities:
+            entity = Entity(name=name, field=field, description=description)
+            self.entities[name] = entity
+            self.graph.add_node(entity._id,
+                               node_type='Entity',
+                               name=name,
+                               field=field,
+                               description=description,
+                               display_name=name,  # 添加显示名称
+                               node_object=entity)
+        
+        return self.entities[name]
+    
+    def find_existing_edge(self, source_id, target_id, edge_type: str):
+        """
+        辅助函数：查找特定类型的边
+        
+        Returns:
+            tuple: (edge_object, edge_key) 如果找到，否则 (None, None)
+        """
+        if not self.graph.has_edge(source_id, target_id):
+            return None, None
+        
+        edges_dict = self.graph[source_id][target_id]
+        for key, data in edges_dict.items():
+            if data.get('edge_type') == edge_type:
+                return data.get('edge_object'), key
+        
+        return None, None
+
+    def update_edge_in_graph(self, source_id, target_id, edge_key, updates: dict):
+        """
+        辅助函数：更新图中的边数据
+        """
+        if self.graph.has_edge(source_id, target_id) and edge_key in self.graph[source_id][target_id]:
+            for key, value in updates.items():
+                self.graph[source_id][target_id][edge_key][key] = value
+
+    def process_author_list_and_paper(self, author_list: AuthorList, paper: Paper):
+        """
+        处理作者列表和论文，创建相关的节点和边
+        这是修复了edge_data未绑定问题的版本
         """
         # Add paper to graph
         paper_node = self.add_paper(paper)
@@ -126,6 +181,7 @@ class KnowledgeGraphBuilder:
                 author_order=author_order
             )
             self.edges.append(author_paper_edge)
+            
             self.graph.add_edge(
                 author_node._id,
                 paper.Title,
@@ -133,7 +189,8 @@ class KnowledgeGraphBuilder:
                 edge_type='AuthorPaper',
                 author_order=author_order,
                 weight=0.0,
-                edge_object=author_paper_edge
+                edge_object=author_paper_edge,
+                display_info=author_paper_edge.get_simple_display()
             )
             
             # Process affiliation if exists
@@ -156,10 +213,11 @@ class KnowledgeGraphBuilder:
                         relation=author_affiliation_edge.relation,
                         edge_type='AuthorAffiliation',
                         rank=0,
-                        edge_object=author_affiliation_edge
+                        edge_object=author_affiliation_edge,
+                        display_info=author_affiliation_edge.get_simple_display()
                     )
         
-        # Create co-author edges
+        # Create co-author edges (使用修复的版本)
         for i in range(len(author_nodes)):
             for j in range(i + 1, len(author_nodes)):
                 coauthor_edge = AuthorCoauthorEdge(
@@ -169,27 +227,31 @@ class KnowledgeGraphBuilder:
                 )
                 self.edges.append(coauthor_edge)
                 
-                # Check if coauthor edge already exists
-                existing_edge = None
-                if self.graph.has_edge(coauthor_edge.source._id, coauthor_edge.target._id):
-                    for key, edge_data in self.graph[coauthor_edge.source._id][coauthor_edge.target._id].items():
-                        if edge_data.get('edge_type') == 'Coauthor':
-                            existing_edge = edge_data.get('edge_object')
-                            break
+                source_id = coauthor_edge.source._id
+                target_id = coauthor_edge.target._id
+                
+                # 查找现有边
+                existing_edge, edge_key = self.find_existing_edge(source_id, target_id, 'Coauthor')
                 
                 if existing_edge:
-                    # Update existing edge with new paper
+                    # 更新现有边
                     existing_edge.add_coauthored_paper(paper_node)
+                    # 更新图中的数据
+                    self.update_edge_in_graph(source_id, target_id, edge_key, {
+                        'display_info': existing_edge.get_simple_display(),
+                        'coauthored_papers': existing_edge.attributes.get('coauthored_paper_list', [])
+                    })
                 else:
-                    # Add new edge
+                    # 创建新边
                     self.graph.add_edge(
-                        coauthor_edge.source._id,
-                        coauthor_edge.target._id,
+                        source_id,
+                        target_id,
                         relation=coauthor_edge.relation,
                         edge_type='Coauthor',
                         weight=0.0,
                         coauthored_papers=[paper_node],
-                        edge_object=coauthor_edge
+                        edge_object=coauthor_edge,
+                        display_info=coauthor_edge.get_simple_display()
                     )
         
         # Create Paper-Affiliation edges
@@ -204,10 +266,11 @@ class KnowledgeGraphBuilder:
                 affiliation_node.Name,
                 relation=paper_affiliation_edge.relation,
                 edge_type='PaperAffiliation',
-                edge_object=paper_affiliation_edge
+                edge_object=paper_affiliation_edge,
+                display_info=paper_affiliation_edge.get_simple_display()
             )
         
-        # Create Affiliation collaboration edges
+        # Create Affiliation collaboration edges (同样需要修复)
         affiliation_list = list(paper_affiliations)
         for i in range(len(affiliation_list)):
             for j in range(i + 1, len(affiliation_list)):
@@ -218,28 +281,91 @@ class KnowledgeGraphBuilder:
                 )
                 self.edges.append(collab_edge)
                 
-                # Check if collaboration edge already exists
-                existing_edge = None
-                if self.graph.has_edge(collab_edge.source.Name, collab_edge.target.Name):
-                    for key, edge_data in self.graph[collab_edge.source.Name][collab_edge.target.Name].items():
-                        if edge_data.get('edge_type') == 'AffiliationCollaboration':
-                            existing_edge = edge_data.get('edge_object')
-                            break
+                source_name = collab_edge.source.Name
+                target_name = collab_edge.target.Name
+                
+                # 查找现有边
+                existing_edge, edge_key = self.find_existing_edge(source_name, target_name, 'AffiliationCollaboration')
                 
                 if existing_edge:
-                    # Update existing edge with new paper
+                    # 更新现有边
                     existing_edge.add_collaboration_paper(paper_node)
+                    # 更新图中的数据
+                    self.update_edge_in_graph(source_name, target_name, edge_key, {
+                        'display_info': existing_edge.get_simple_display(),
+                        'collaboration_papers': existing_edge.attributes.get('collaboration_paper_list', [])
+                    })
                 else:
-                    # Add new edge
+                    # 创建新边
                     self.graph.add_edge(
-                        collab_edge.source.Name,
-                        collab_edge.target.Name,
+                        source_name,
+                        target_name,
                         relation=collab_edge.relation,
                         edge_type='AffiliationCollaboration',
                         weight=0.0,
                         collaboration_papers=[paper_node],
-                        edge_object=collab_edge
+                        edge_object=collab_edge,
+                        display_info=collab_edge.get_simple_display()
                     )
+    
+    def add_paper_entity_relation(self, paper: Paper, entity: Entity, weight: float = 0.0):
+        """
+        Add a relation between a paper and an entity.
+        
+        Args:
+            paper: Paper object
+            entity: Entity object
+            weight: Initial weight of the relation
+        """
+        paper_node = self.add_paper(paper)
+        entity_node = self.get_or_create_entity(
+            name=entity.name,
+            field=entity.field,
+            description=entity.description
+        )
+        
+        paper_entity_edge = PaperEntityEdge(
+            paper=paper_node,
+            entity=entity_node
+        )
+        paper_entity_edge.update_weight(weight)
+        
+        self.edges.append(paper_entity_edge)
+        self.graph.add_edge(
+            paper.Title,
+            entity_node._id,
+            relation=paper_entity_edge.relation,
+            edge_type='PaperEntity',
+            weight=weight,
+            edge_object=paper_entity_edge,
+            display_info=paper_entity_edge.get_simple_display()
+        )
+    
+    def add_paper_citation(self, citing_paper: Paper, cited_paper: Paper):
+        """
+        Add a citation relation between papers.
+        
+        Args:
+            citing_paper: The paper that cites
+            cited_paper: The paper being cited
+        """
+        citing_node = self.add_paper(citing_paper)
+        cited_node = self.add_paper(cited_paper)
+        
+        citation_edge = PaperCitationEdge(
+            citing_paper=citing_node,
+            cited_paper=cited_node
+        )
+        
+        self.edges.append(citation_edge)
+        self.graph.add_edge(
+            citing_paper.Title,
+            cited_paper.Title,
+            relation=citation_edge.relation,
+            edge_type='Citation',
+            edge_object=citation_edge,
+            display_info=citation_edge.get_simple_display()
+        )
     
     def get_graph_statistics(self) -> Dict:
         """
@@ -266,6 +392,170 @@ class KnowledgeGraphBuilder:
             'number_of_components': nx.number_weakly_connected_components(self.graph)
         }
     
+    def display_edges(self, limit: int = 10, edge_type: Optional[str] = None) -> List[str]:
+        """
+        Display edges in a human-readable format.
+        
+        Args:
+            limit: Maximum number of edges to display
+            edge_type: Filter by edge type (optional)
+            
+        Returns:
+            List of edge display strings
+        """
+        displays = []
+        count = 0
+        
+        for edge in self.edges:
+            if edge_type and not isinstance(edge, eval(edge_type)):
+                continue
+                
+            if count >= limit:
+                break
+                
+            # 使用边对象的友好显示方法
+            displays.append(str(edge))  # 这会调用 __repr__ 方法
+            count += 1
+        
+        return displays
+    
+    def get_author_collaborators(self, author_name: str) -> List[Dict]:
+        """
+        Get all collaborators of a specific author.
+        
+        Args:
+            author_name: Name of the author
+            
+        Returns:
+            List of collaborator information
+        """
+        if author_name not in self.authors:
+            return []
+        
+        author = self.authors[author_name]
+        collaborators = []
+        
+        # 查找所有合作者边
+        for edge in self.edges:
+            if isinstance(edge, AuthorCoauthorEdge):
+                if edge.source == author or edge.target == author:
+                    coauthor = edge.target if edge.source == author else edge.source
+                    collaborators.append({
+                        'name': coauthor.Name,
+                        'papers_count': len(edge.attributes.get('coauthored_paper_list', [])),
+                        'display': edge.get_simple_display()
+                    })
+        
+        return collaborators
+    
+    def get_paper_network(self, paper_title: str) -> Dict:
+        """
+        Get the network information for a specific paper.
+        
+        Args:
+            paper_title: Title of the paper
+            
+        Returns:
+            Dictionary containing paper network information
+        """
+        if paper_title not in self.papers:
+            return {}
+        
+        paper = self.papers[paper_title]
+        network = {
+            'title': paper_title,
+            'authors': [],
+            'affiliations': [],
+            'entities': [],
+            'citations': {'citing': [], 'cited_by': []}
+        }
+        
+        # 遍历所有边来收集信息
+        for edge in self.edges:
+            if isinstance(edge, AuthorPaperEdge) and edge.target == paper:
+                network['authors'].append({
+                    'name': edge.source.Name,
+                    'order': edge.attributes.get('author_order', 0),
+                    'display': edge.get_simple_display()
+                })
+            elif isinstance(edge, PaperAffiliationEdge) and edge.source == paper:
+                network['affiliations'].append({
+                    'name': edge.target.Name,
+                    'display': edge.get_simple_display()
+                })
+            elif isinstance(edge, PaperEntityEdge) and edge.source == paper:
+                network['entities'].append({
+                    'name': edge.target.name,
+                    'weight': edge.attributes.get('weight', 0),
+                    'display': edge.get_simple_display()
+                })
+            elif isinstance(edge, PaperCitationEdge):
+                if edge.source == paper:
+                    network['citations']['citing'].append({
+                        'title': edge.target.Title,
+                        'display': edge.get_simple_display()
+                    })
+                elif edge.target == paper:
+                    network['citations']['cited_by'].append({
+                        'title': edge.source.Title,
+                        'display': edge.get_simple_display()
+                    })
+        
+        # 按作者顺序排序
+        network['authors'].sort(key=lambda x: x['order'])
+        
+        return network
+    
+    def export_edges_to_json(self, filename: str):
+        """
+        Export all edges to a JSON file with human-readable format.
+        
+        Args:
+            filename: Output filename
+        """
+        edges_data = []
+        
+        for edge in self.edges:
+            edge_dict = edge.to_dict()
+            edge_dict['display'] = edge.get_simple_display()
+            edge_dict['type'] = edge.__class__.__name__
+            edges_data.append(edge_dict)
+        
+        if not filename.endswith('.json'):
+            filename += '.json'
+        
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(edges_data, f, ensure_ascii=False, indent=2)
+        
+        print(f"Edges exported to {filename}")
+    
+    def print_graph_summary(self):
+        """
+        Print a human-readable summary of the graph.
+        """
+        stats = self.get_graph_statistics()
+        
+        print("\n" + "="*50)
+        print("Knowledge Graph Summary")
+        print("="*50)
+        print(f"Total Nodes: {stats['total_nodes']}")
+        print(f"Total Edges: {stats['total_edges']}")
+        print(f"Connected: {stats['is_connected']}")
+        print(f"Components: {stats['number_of_components']}")
+        
+        print("\nNode Distribution:")
+        for node_type, count in stats['node_types'].items():
+            print(f"  {node_type}: {count}")
+        
+        print("\nEdge Distribution:")
+        for edge_type, count in stats['edge_types'].items():
+            print(f"  {edge_type}: {count}")
+        
+        print("\nSample Edges (first 5):")
+        for display in self.display_edges(limit=5):
+            print(f"  {display}")
+        
+        print("="*50 + "\n")
     
     def export_to_graphml(self, filename: str):
         """
@@ -286,17 +576,20 @@ class KnowledgeGraphBuilder:
                 data['uuid'] = str(node)
         
         # Convert edge objects to serializable format
-        # In NetworkX 3.x, we need to iterate over edges differently for MultiDiGraph
-        for u, v, data in export_graph.edges(data=True):
+        for u, v, key, data in export_graph.edges(data=True):
             if 'edge_object' in data:
+                # 保存边的友好显示信息
+                if hasattr(data['edge_object'], 'get_simple_display'):
+                    data['display'] = data['edge_object'].get_simple_display()
                 del data['edge_object']
+            
+            # 处理论文列表
             if 'coauthored_papers' in data:
                 data['num_coauthored_papers'] = len(data['coauthored_papers'])
                 del data['coauthored_papers']
             if 'collaboration_papers' in data:
                 data['num_collaboration_papers'] = len(data['collaboration_papers'])
                 del data['collaboration_papers']
-            # Convert any Paper objects in coauthored_paper_list to titles
             if 'coauthored_paper_list' in data:
                 data['coauthored_papers'] = [p.Title for p in data['coauthored_paper_list']]
                 del data['coauthored_paper_list']
