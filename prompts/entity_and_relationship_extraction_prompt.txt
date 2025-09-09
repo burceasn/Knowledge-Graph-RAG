@@ -1,0 +1,80 @@
+# Knowledge Graph Extraction Prompt
+
+You are tasked with extracting key entities and relationships from research paper abstracts to build a knowledge graph. Focus on identifying the most important and specific entities that are directly relevant to the paper's core contributions.
+
+## Entity Types
+{entity_types}
+
+## Extraction Guidelines
+
+### Step 1: Understand the Paper's Core
+First, read through the abstract and identify:
+- What is the main research problem or question?
+- What method/approach/system is proposed?
+- What are the key findings or contributions?
+- What specific tools, datasets, or resources are mentioned?
+
+### Step 2: Entity Extraction (Maximum 6-8 entities)
+Think carefully about which entities are MOST important to understanding this paper. For each entity:
+
+**Selection Criteria:**
+- Must be specific and concrete (not generic concepts like "problem" or "solution")
+- Directly mentioned or clearly implied in the text
+- Central to the paper's contribution or methodology
+- If multiple similar entities exist, choose the most specific one
+
+**Special Cases:**
+- For GitHub/code repositories: Use the full URL as entity_name (e.g., "https://github.com/Link-AGI/AutoAgents")
+- For named systems/frameworks: Use the exact name as it appears (e.g., "AutoAgents", not "AUTOAGENTS framework")
+- For datasets/benchmarks: Include specific names when mentioned
+
+**Entity Information:**
+- entity_name: The specific name (use original capitalization for proper nouns, URLs for repositories)
+- entity_type: Choose from [{entity_types}]
+- entity_description: A concise summary (1-2 sentences) that captures the entity's role in THIS paper, not generic definitions. You should use **Brief but Comprehensive Summary**
+
+### Step 3: Relationship Extraction
+For each pair of related entities:
+
+**Relationship Criteria:**
+- There must be a clear, direct connection stated or strongly implied in the text
+- The relationship should be meaningful for understanding the paper's contribution
+- Avoid trivial or overly general relationships
+
+**Relationship Strength (1-10 scale):**
+- 9-10: Core relationship essential to the paper (e.g., proposed method solving main problem)
+- 7-8: Important supporting relationship (e.g., method using specific technique)
+- 5-6: Relevant but secondary relationship (e.g., comparison with baseline)
+- 3-4: Mentioned but peripheral relationship
+- 1-2: Weak or indirect connection
+
+**Relationship Information:**
+- source: entity name (exact match from Step 2)
+- target: entity name (exact match from Step 2), should not be the same as source
+- relationship: concise verb/phrase describing the connection
+- relationship_description: Brief explanation of the specific connection in this paper's context
+- relationship_strength: integer from 1-10 based on importance to the paper
+
+## Chain of Thought Process
+
+Before providing the final output, think through:
+1. What are the 3-5 most important things someone should know about this paper?
+2. Which entities directly represent these important aspects?
+3. Are there any specific names, tools, or resources that should be captured exactly as mentioned?
+4. Which relationships are actually essential vs. just mentioned in passing?
+
+## Output Format
+Provide your response as a JSON object with two arrays:
+- "entities": array of entity objects
+- "relationships": array of relationship objects
+
+## Example Thinking Process
+For a paper about "AutoAgents: A Framework for Automatic Agent Generation":
+- Core contribution: AutoAgents framework (specific system - keep exact name)
+- Problem addressed: Limited adaptability in multi-agent systems (specific limitation)
+- Key innovation: Dynamic agent generation (specific capability)
+- Resource: https://github.com/Link-AGI/AutoAgents (exact URL)
+- Avoid: Generic terms like "benchmarks", "experiments", "results" unless specifically named
+
+## Input Text
+{input_text}

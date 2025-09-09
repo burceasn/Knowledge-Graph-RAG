@@ -135,6 +135,13 @@ class AuthorPaperEdge(BaseEdge):
         order = self.attributes.get('author_order', 0)
         return base_repr.replace(')', f', order={order})')
 
+    def calculate_weight(self, total_authors: int):
+        """
+        找到了一个比较开箱即用的weight算法, 叫: Harmonic Credit Model
+        credit_i = \frac{1/i}{\sum^N_{k=1}1/k}
+        """
+        pass
+
 
 #! 定义了一个Rank属性, 用来规范author再affiliation中的顺序, 具体算法之后规定
 class AuthorAffiliationEdge(BaseEdge):
@@ -250,3 +257,44 @@ class AffiliationCollaborationEdge(BaseEdge):
         # 修正：原代码中使用了错误的key名称
         if new_paper not in self.attributes['collaboration_paper_list']:
             self.attributes['collaboration_paper_list'].append(new_paper)
+
+class EntityToEntityEdge(BaseEdge):
+    """定义"实体-关联->实体"的边。"""
+    def __init__(self, source_entity: Entity, target_entity: Entity, 
+                 relationship_description: str, strength: float = 0.0):
+        """
+        初始化实体到实体的边。
+        
+        Args:
+            source_entity: 源实体节点
+            target_entity: 目标实体节点  
+            relationship_description: 关系描述
+            strength: 关系强度，默认为0.0
+        """
+        super().__init__(
+            source_node=source_entity,
+            target_node=target_entity,
+            relation="relates_to",  # 通用的关系类型
+            relationship_description=relationship_description,
+            strength=strength
+        )
+
+    def update_strength(self, new_strength: float):
+        """更新实体之间的关系强度。"""
+        self.attributes['strength'] = new_strength
+
+    def get_relationship_description(self) -> str:
+        """获取关系描述。"""
+        return self.attributes.get('relationship_description', '')
+
+    def get_strength(self) -> float:
+        """获取关系强度。"""
+        return self.attributes.get('strength', 0.0)
+
+    def get_simple_display(self) -> str:
+        """返回简单的显示格式，用于用户界面展示。"""
+        source_name = self.source.name
+        target_name = self.target.name
+        relationship = self.get_relationship_description()
+        strength = self.get_strength()
+        return f"{source_name} --[{relationship}]-> {target_name} (强度: {strength})"

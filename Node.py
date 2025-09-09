@@ -6,7 +6,7 @@ import networkx as nx
 
 class Entity:
     """Represents a research entity, such as a field, topic, or keyword."""
-    def __init__(self, name: str, field: Optional[str] = None, description: Optional[str] = None):
+    def __init__(self, name: str, field: Optional[str] = None, description: Optional[str] = None, entity_type: Optional[str] = None):
         """
         Initializes an Entity object.
 
@@ -19,6 +19,7 @@ class Entity:
         self.name = name
         self.field = field
         self.description = description
+        self.entity_type = entity_type 
 
     def __eq__(self, other):
         return isinstance(other, Entity) and self._id == other._id
@@ -32,15 +33,16 @@ class Entity:
                 "id": self._id, 
                 "name": self.name, 
                 "field": self.field, 
-                "description": self.description
+                "description": self.description,
+                "entity_type": self.entity_type
             }
 
-    def to_json(self, indent: int = 4) -> str:
+    def to_json(self, indent: int = 5) -> str:
         """Converts the Entity object to a JSON string."""
         return json.dumps(self.to_dict(), indent=indent)
 
     def __repr__(self) -> str:
-        return f"Entity(name='{self.name}'\nfield='{self.field}'\ndescription='{self.description}')"
+        return f"Entity(name='{self.name}'\nfield='{self.field}'\ndescription='{self.description}'\nentity_type='{self.entity_type}')"
 
 class Paper:
     """Represents a single research paper."""
