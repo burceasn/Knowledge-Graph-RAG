@@ -110,7 +110,7 @@ class BaseEdge:
         """
         source_name = self._get_node_display_name(self.source)
         target_name = self._get_node_display_name(self.target)
-        return f"{source_name} --{self.relation}--> {target_name}"
+        return f"{source_name} --**{self.relation}**--> {target_name}"
 
 
 #? 怎么解决不同的author和同一篇paper不同的weight --> 通过记录author的order来区分
@@ -135,12 +135,6 @@ class AuthorPaperEdge(BaseEdge):
         order = self.attributes.get('author_order', 0)
         return base_repr.replace(')', f', order={order})')
 
-    def calculate_weight(self, total_authors: int):
-        """
-        找到了一个比较开箱即用的weight算法, 叫: Harmonic Credit Model
-        credit_i = \frac{1/i}{\sum^N_{k=1}1/k}
-        """
-        pass
 
 
 #! 定义了一个Rank属性, 用来规范author再affiliation中的顺序, 具体算法之后规定

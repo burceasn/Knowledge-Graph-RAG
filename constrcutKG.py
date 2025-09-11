@@ -152,6 +152,37 @@ class KnowledgeGraphBuilder:
             for key, value in updates.items():
                 self.graph[source_id][target_id][edge_key][key] = value
 
+    def calculate_author_credit(self, author_list: AuthorList, target_paper: Paper) -> Dict[str, float]:
+        """
+        计算论文中每个作者的权重（使用 Harmonic Credit Model）
+        
+        Args:
+            author_list: 作者列表
+            target_paper: 目标论文
+            
+        Returns:
+            Dict[str, float]: 作者名称到权重的映射
+        """
+        # 获取所有作者的顺序列表
+        author_orders = []
+        for author in author_list.Authors:
+            # 如果没有 Author_Order，使用默认值 1
+            order = getattr(author, 'Author_Order', 1) or 1
+            author_orders.append(order)
+        
+        # 计算 Harmonic Credit Model
+        # credit_i = (1/i) / sum(1/k for k in all_orders)
+        sum_harmonic = sum(1/order for order in author_orders)
+        
+        # 创建作者权重映射
+        author_weights = {}
+        for i, author in enumerate(author_list.Authors):
+            order = author_orders[i]
+            weight = round((1/order) / sum_harmonic, 4)  # 保留4位小数
+            author_weights[author.Name] = weight
+        
+        return author_weights
+
     def process_author_list_and_paper(self, author_list: AuthorList, paper: Paper):
         """
         处理作者列表和论文，创建相关的节点和边
@@ -163,6 +194,8 @@ class KnowledgeGraphBuilder:
         # Track affiliations for this paper
         paper_affiliations = set()
         
+        author_weights = self.calculate_author_credit(author_list, paper_node)
+
         # Process each author
         author_nodes = []
         for author_meta in author_list.Authors:
@@ -174,12 +207,16 @@ class KnowledgeGraphBuilder:
             author_nodes.append(author_node)
             
             # Create Author-Paper edge
-            author_order = author_meta.Author_Order if hasattr(author_meta, 'Author_Order') and author_meta.Author_Order else 0
+            author_order = getattr(author_meta, 'Author_Order', 1) or 1
             author_paper_edge = AuthorPaperEdge(
                 author=author_node,
                 paper=paper_node,
                 author_order=author_order
             )
+
+            # 更新权重
+            weight = author_weights.get(author_meta.Name, 0.0)
+            author_paper_edge.update_weight(weight)
             self.edges.append(author_paper_edge)
             
             self.graph.add_edge(
