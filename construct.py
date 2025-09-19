@@ -613,7 +613,7 @@ class KnowledgeGraphBuilder:
                 data['uuid'] = str(node)
         
         # Convert edge objects to serializable format
-        for u, v, key, data in export_graph.edges(data=True):
+        for u, v, key, data in export_graph.edges(data=True): # pyright: ignore[reportAssignmentType]
             if 'edge_object' in data:
                 # 保存边的友好显示信息
                 if hasattr(data['edge_object'], 'get_simple_display'):
