@@ -222,7 +222,7 @@ class PaperEntityExtractor:
             ]
             
             try:
-                response = self.client.chat.completions.create(
+                response = self.client.chat.completions.create( # pyright: ignore[reportAttributeAccessIssue]
                     model=self.model,
                     messages=[
                         {"role": "system", "content": "You are an expert at extracting entities and relationships from academic text. You don't make any mistakes, and you don't miss anything important."},
@@ -292,6 +292,7 @@ class PaperEntityExtractor:
                             entity_type=entity_data["entity_type"]
                         )
                         entities.append(entity)
+                        entity_dict[entity.name] = entity  # Add entity to lookup dictionary
                         logger.debug(f"Extracted entity: {entity.name} ({entity.entity_type})")
                     
                     # Process relationships

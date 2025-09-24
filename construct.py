@@ -2,6 +2,18 @@ import networkx as nx
 from typing import Dict, List, Optional, Set, Tuple
 from collections import defaultdict
 import json
+from uuid import UUID
+
+# Custom JSON encoder for UUID serialization
+class UUIDEncoder(json.JSONEncoder):
+    """
+    A custom JSON encoder to handle UUID objects, converting them to strings.
+    """
+    def default(self, o):
+        if isinstance(o, UUID):
+            return str(o)
+        return super().default(o)
+
 
 # Import your existing classes
 from Author_metadata import AuthorList, Author as AuthorMeta
@@ -594,49 +606,42 @@ class KnowledgeGraphBuilder:
         
         print("="*50 + "\n")
     
-    def export_to_graphml(self, filename: str):
+    def export_to_json(self, filename: str):
         """
-        Export the graph to GraphML format.
+        Export the graph to a JSON file in node-link format.
         
         Args:
-            filename: Output filename (should end with .graphml)
+            filename: Output filename (should end with .json)
         """
-        # Create a copy of the graph for export
+        # Create a copy of the graph for export to avoid modifying the original
         export_graph = self.graph.copy()
         
-        # Convert node objects to serializable format
+        # Prepare nodes for serialization
         for node, data in export_graph.nodes(data=True):
             if 'node_object' in data:
                 del data['node_object']
-            # Convert UUID to string if it's used as node ID
-            if hasattr(node, '__class__') and 'UUID' in str(type(node)):
-                data['uuid'] = str(node)
-        
-        # Convert edge objects to serializable format
-        for u, v, key, data in export_graph.edges(data=True): # pyright: ignore[reportAssignmentType]
+            
+        # Prepare edges for serialization
+        for u, v, key, data in export_graph.edges(keys=True, data=True):
             if 'edge_object' in data:
-                # 保存边的友好显示信息
-                if hasattr(data['edge_object'], 'get_simple_display'):
-                    data['display'] = data['edge_object'].get_simple_display()
                 del data['edge_object']
             
-            # 处理论文列表
-            if 'coauthored_papers' in data:
-                data['num_coauthored_papers'] = len(data['coauthored_papers'])
-                del data['coauthored_papers']
-            if 'collaboration_papers' in data:
-                data['num_collaboration_papers'] = len(data['collaboration_papers'])
-                del data['collaboration_papers']
-            if 'coauthored_paper_list' in data:
-                data['coauthored_papers'] = [p.Title for p in data['coauthored_paper_list']]
-                del data['coauthored_paper_list']
-            if 'collaboration_paper_list' in data:
-                data['collaboration_papers'] = [p.Title for p in data['collaboration_paper_list']]
-                del data['collaboration_paper_list']
+            # Convert Paper objects in lists to string titles
+            for paper_list_key in ['coauthored_papers', 'collaboration_papers', 'coauthored_paper_list', 'collaboration_paper_list']:
+                if paper_list_key in data and data[paper_list_key]:
+                    # Check if the list contains Paper objects
+                    if hasattr(data[paper_list_key][0], 'Title'):
+                        data[paper_list_key] = [p.Title for p in data[paper_list_key]]
+
+        # Generate data in a format suitable for JSON (node-link format)
+        graph_data = nx.node_link_data(export_graph)
         
-        # Ensure filename ends with .graphml
-        if not filename.endswith('.graphml'):
-            filename += '.graphml'
-        
-        nx.write_graphml(export_graph, filename)
+        # Ensure the filename has a .json extension
+        if not filename.endswith('.json'):
+            filename += '.json'
+            
+        # Write the data to a JSON file
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(graph_data, f, ensure_ascii=False, indent=4, cls=UUIDEncoder)
+            
         print(f"Graph exported to {filename}")
