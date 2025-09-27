@@ -38,9 +38,17 @@ class PaperProcessor:
     """
     
     def __init__(self, 
+                 base_llm_model: str,
+                 higher_llm_model: str,
+                 base_llm_url:str,
+                 higher_llm_url: str,
+                 base_llm_apikey: str,
+                 higher_llm_apikey:str,
                  source_dir: str = "source",
                  data_dir: str = "data",
                  cache_dir: str = "cache",
+                 base_llm_provider: str = "ollama",
+                 higher_llm_provider: str = "deepseek",
                  field_list: Optional[List[str]] = None):
         """
         初始化处理器
@@ -55,6 +63,14 @@ class PaperProcessor:
         self.data_dir = Path(data_dir)
         self.cache_dir = Path(cache_dir)
         self.field_list = field_list or ["ML", "LLM", "Knowledge Graph"]
+        self.base_llm = {"provider": base_llm_provider,
+                         "url": base_llm_url,
+                         "apikey": base_llm_apikey,
+                         "model": base_llm_model}
+        self.higher_llm = {"provider": higher_llm_provider,
+                           "url": higher_llm_url,
+                           "apikey": higher_llm_apikey,
+                           "model": higher_llm_model}
         
         # 初始化缓存
         self.cache = PaperCache(cache_dir=str(self.cache_dir))
@@ -76,9 +92,10 @@ class PaperProcessor:
         """初始化各种提取器"""
         # 作者提取器
         base_author_extractor = AuthorMetadataExtractor(
-            api_base_url="http://localhost:11434/v1",
-            api_key="ollama",
-            model="qwen3:4b"  # 或者你使用的模型
+            llm_provider=self.base_llm["provider"],
+            api_base_url=self.base_llm["url"],
+            api_key=self.base_llm["apikey"],
+            model=self.base_llm["model"]
         )
         self.author_extractor = CachedAuthorExtractor(
             cache=self.cache,
@@ -87,14 +104,13 @@ class PaperProcessor:
         
         # 实体提取器
         base_entity_extractor = PaperEntityExtractor(
-            llm_provider="deepseek",  # 或 "ollama"
-            api_key=os.getenv("DEEPSEEK_API_KEY"),  # 从环境变量获取
-            api_base_url="https://api.deepseek.com/beta",
-            model="deepseek-chat",
-            entity_types=["CONCEPT", "METHOD", "DATASET", "METRIC", 
-                         "APPLICATION", "TOOL", "PROBLEM", "RESULT"],
+            llm_provider=self.higher_llm["provider"],
+            api_key=self.higher_llm["apikey"],
+            api_base_url=self.higher_llm["url"],
+            model=self.higher_llm["model"],
             temperature=0.1
         )
+
         self.entity_extractor = CachedEntityExtractor(
             cache=self.cache,
             entity_extractor=base_entity_extractor
@@ -262,7 +278,15 @@ def main():
         source_dir="source",
         data_dir="data",
         cache_dir="cache",
-        field_list=["ML", "LLM", "Knowledge Graph"]
+        field_list=["ML", "LLM", "Knowledge Graph"],
+        base_llm_provider="deepseek",
+        base_llm_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+        base_llm_model="qwen-flash",
+        base_llm_apikey=os.getenv("DASHSCOPE_API_KEY"),  # type: ignore
+        higher_llm_provider="deepseek",
+        higher_llm_apikey=os.getenv("DEEPSEEK_API_KEY"), # pyright: ignore[reportArgumentType]
+        higher_llm_model="deepseek-chat",
+        higher_llm_url="https://api.deepseek.com/beta"
     )
     
     # 显示当前缓存状态

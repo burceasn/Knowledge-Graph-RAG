@@ -1,0 +1,3871 @@
+{
+    "directed": true,
+    "multigraph": true,
+    "graph": {},
+    "nodes": [
+        {
+            "node_type": "Paper",
+            "title": "AutoAgents: A Framework for Automatic Agent Generation",
+            "abstract": "Large language models (LLMs) have enabled remarkable advances in automated task-solving with multi-agent systems. However, most existing LLM-based multi-agent approaches rely on predefined agents to handle simple tasks, limiting the adaptability of multi-agent collaboration to different scenarios. Therefore, we introduce AutoAgents, an innovative framework that adaptively generates and coordinates multiple specialized agents to build an AI team according to different tasks. Specifically, AutoAgents couples the relationship between tasks and roles by dynamically generating multiple required agents based on task content and planning solutions for the current task based on the generated expert agents. Multiple specialized agents collaborate with each other to efficiently accomplish tasks. Concurrently, an observer role is incorporated into the framework to reflect on the designated plans and agents' responses and improve upon them. Our experiments on various benchmarks demonstrate that AutoAgents generates more coherent and accurate solutions than the existing multi-agent methods. This underscores the significance of assigning different roles to different tasks and of team cooperation, offering new perspectives for tackling complex tasks. The repository of this project is available at https://github.com/Link-AGI/AutoAgents.",
+            "field": "ML",
+            "display_name": "AutoAgents: A Framework for Automatic Agent Generation",
+            "id": "AutoAgents: A Framework for Automatic Agent Generation"
+        },
+        {
+            "node_type": "Author",
+            "name": "Guangyao Chen",
+            "email": "gy.chen@pku.edu.cn",
+            "display_name": "Guangyao Chen",
+            "id": "1e372cd0-2857-4506-8d78-7c7564a3f4fc"
+        },
+        {
+            "node_type": "Affiliation",
+            "name": "Peking University",
+            "display_name": "Peking University",
+            "id": "Peking University"
+        },
+        {
+            "node_type": "Author",
+            "name": "Siwei Dong",
+            "email": null,
+            "display_name": "Siwei Dong",
+            "id": "9220ea63-ac9c-4792-9820-d3e4b7f64965"
+        },
+        {
+            "node_type": "Author",
+            "name": "Yu Shu",
+            "email": null,
+            "display_name": "Yu Shu",
+            "id": "921af902-ea41-43d1-85af-8aa6228a409c"
+        },
+        {
+            "node_type": "Author",
+            "name": "Ge Zhang",
+            "email": null,
+            "display_name": "Ge Zhang",
+            "id": "6ba3a1f0-07ff-42a2-84fb-b1e9cd2e9229"
+        },
+        {
+            "node_type": "Affiliation",
+            "name": "University of Waterloo",
+            "display_name": "University of Waterloo",
+            "id": "University of Waterloo"
+        },
+        {
+            "node_type": "Author",
+            "name": "Jaward Sesay",
+            "email": null,
+            "display_name": "Jaward Sesay",
+            "id": "a4014750-b865-4159-b53d-6cde361e8d83"
+        },
+        {
+            "node_type": "Affiliation",
+            "name": "Beijing Academy of Artificial Intelligence",
+            "display_name": "Beijing Academy of Artificial Intelligence",
+            "id": "Beijing Academy of Artificial Intelligence"
+        },
+        {
+            "node_type": "Author",
+            "name": "Borje Karlsson",
+            "email": null,
+            "display_name": "Borje Karlsson",
+            "id": "d63c5005-6911-4dba-8c5d-8fad00e690ac"
+        },
+        {
+            "node_type": "Author",
+            "name": "Jie Fu",
+            "email": "jiefu@ust.hk",
+            "display_name": "Jie Fu",
+            "id": "bd93df24-2df0-4523-9e81-7fc6b32423c5"
+        },
+        {
+            "node_type": "Affiliation",
+            "name": "Hong Kong University of Science and Technology",
+            "display_name": "Hong Kong University of Science and Technology",
+            "id": "Hong Kong University of Science and Technology"
+        },
+        {
+            "node_type": "Author",
+            "name": "Yemin Shi",
+            "email": "shiyemin@pku.edu.cn",
+            "display_name": "Yemin Shi",
+            "id": "2916d990-c040-4ca7-8b0d-53e92fb7523e"
+        },
+        {
+            "node_type": "Entity",
+            "name": "AutoAgents",
+            "field": null,
+            "description": "An innovative framework that adaptively generates and coordinates multiple specialized agents to build an AI team according to different tasks, dynamically generating required agents based on task content and planning solutions.",
+            "display_name": "AutoAgents",
+            "id": "32b7c1b3-f271-4a41-96f1-c20b6ee0d0be"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Multi-agent systems",
+            "field": null,
+            "description": "Systems where multiple agents collaborate to solve tasks, but existing approaches rely on predefined agents limiting adaptability to different scenarios.",
+            "display_name": "Multi-agent systems",
+            "id": "6be6ed66-d22a-4307-810f-df6f1a305d93"
+        },
+        {
+            "node_type": "Entity",
+            "name": "LLM-based multi-agent approaches",
+            "field": null,
+            "description": "Existing approaches that use large language models for automated task-solving but rely on predefined agents, limiting adaptability to different scenarios.",
+            "display_name": "LLM-based multi-agent approaches",
+            "id": "23520d71-a79e-4112-a4a9-f467e425e861"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Observer role",
+            "field": null,
+            "description": "A role incorporated into the AutoAgents framework that reflects on designated plans and agents' responses to improve upon them.",
+            "display_name": "Observer role",
+            "id": "3bbf285f-9445-4c0b-9e7d-d356a531ec6a"
+        },
+        {
+            "node_type": "Entity",
+            "name": "https://github.com/Link-AGI/AutoAgents",
+            "field": null,
+            "description": "The repository containing the implementation and resources for the AutoAgents framework project.",
+            "display_name": "https://github.com/Link-AGI/AutoAgents",
+            "id": "971eef7a-cd43-4519-9e39-aad5c846a31e"
+        },
+        {
+            "node_type": "Paper",
+            "title": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "abstract": "The use of retrieval-augmented generation (RAG) to retrieve relevant information from an external knowledge source enables large language models (LLMs) to answer questions over private and/or previously unseen document collections. However, RAG fails on global questions directed at an entire text corpus, such as \"What are the main themes in the dataset?\", since this is inherently a query-focused summarization (QFS) task, rather than an explicit retrieval task. Prior QFS methods, meanwhile, do not scale to the quantities of text indexed by typical RAG systems. To combine the strengths of these contrasting methods, we propose GraphRAG, a graph-based approach to question answering over private text corpora that scales with both the generality of user questions and the quantity of source text. Our approach uses an LLM to build a graph index in two stages: first, to derive an entity knowledge graph from the source documents, then to pre-generate community summaries for all groups of closely related entities. Given a question, each community summary is used to generate a partial response, before all partial responses are again summarized in a final response to the user. For a class of global sensemaking questions over datasets in the 1 million token range, we show that GraphRAG leads to substantial improvements over a conventional RAG baseline for both the comprehensiveness and diversity of generated answers.",
+            "field": "ML",
+            "display_name": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "id": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+        },
+        {
+            "node_type": "Author",
+            "name": "Darren Edge",
+            "email": "daedge@microsoft.com",
+            "display_name": "Darren Edge",
+            "id": "2b5aa571-9b0d-45c2-9b64-9bd2265ae17b"
+        },
+        {
+            "node_type": "Affiliation",
+            "name": "Microsoft Research",
+            "display_name": "Microsoft Research",
+            "id": "Microsoft Research"
+        },
+        {
+            "node_type": "Author",
+            "name": "Ha Trinh",
+            "email": "trinhha@microsoft.com",
+            "display_name": "Ha Trinh",
+            "id": "13280995-4693-4de5-895d-ac5814df21c5"
+        },
+        {
+            "node_type": "Author",
+            "name": "Newman Cheng",
+            "email": "newmancheng@microsoft.com",
+            "display_name": "Newman Cheng",
+            "id": "987d6cb9-4023-49c7-99de-565e7d6b4bdd"
+        },
+        {
+            "node_type": "Affiliation",
+            "name": "Microsoft Strategic Missions and Technologies",
+            "display_name": "Microsoft Strategic Missions and Technologies",
+            "id": "Microsoft Strategic Missions and Technologies"
+        },
+        {
+            "node_type": "Author",
+            "name": "Joshua Bradley",
+            "email": "joshbradley@microsoft.com",
+            "display_name": "Joshua Bradley",
+            "id": "495b1b26-81f1-498f-afd7-d443573bd8c3"
+        },
+        {
+            "node_type": "Author",
+            "name": "Alex Chao",
+            "email": "achao@microsoft.com",
+            "display_name": "Alex Chao",
+            "id": "a4cd8bc7-4549-426c-bc95-74d5b776a7df"
+        },
+        {
+            "node_type": "Affiliation",
+            "name": "Microsoft Office of the CTO",
+            "display_name": "Microsoft Office of the CTO",
+            "id": "Microsoft Office of the CTO"
+        },
+        {
+            "node_type": "Author",
+            "name": "Apurva Mody",
+            "email": "moapurva@microsoft.com",
+            "display_name": "Apurva Mody",
+            "id": "96ff338a-609e-4c62-8915-b6c7aaeea9e3"
+        },
+        {
+            "node_type": "Author",
+            "name": "Steven Truitt",
+            "email": "steventruitt@microsoft.com",
+            "display_name": "Steven Truitt",
+            "id": "6d684f78-d65b-4a83-b7e1-6cb83bcb7b73"
+        },
+        {
+            "node_type": "Author",
+            "name": "Dasha Metropolitansky",
+            "email": "dasham@microsoft.com",
+            "display_name": "Dasha Metropolitansky",
+            "id": "d0735f09-d395-45b0-b06e-906286bae306"
+        },
+        {
+            "node_type": "Author",
+            "name": "Robert Osazuwa Ness",
+            "email": "robertness@microsoft.com",
+            "display_name": "Robert Osazuwa Ness",
+            "id": "7ca2f41c-5900-4b96-b87d-59fc6900dc59"
+        },
+        {
+            "node_type": "Author",
+            "name": "Jonathan Larson",
+            "email": "jolarso@microsoft.com",
+            "display_name": "Jonathan Larson",
+            "id": "0d30f609-b23c-478a-a2fe-f2c65d9d82e4"
+        },
+        {
+            "node_type": "Entity",
+            "name": "GraphRAG",
+            "field": null,
+            "description": "A graph-based approach to question answering over private text corpora that combines retrieval-augmented generation and query-focused summarization, using a two-stage graph index construction with LLMs.",
+            "display_name": "GraphRAG",
+            "id": "a087c349-3556-4a82-b30d-cb1637d6cdf1"
+        },
+        {
+            "node_type": "Entity",
+            "name": "RAG",
+            "field": null,
+            "description": "Retrieval-augmented generation method that retrieves relevant information from external knowledge sources to enable LLMs to answer questions over private document collections.",
+            "display_name": "RAG",
+            "id": "c2fc09be-3fb7-419e-a38e-182b5f1a3b6e"
+        },
+        {
+            "node_type": "Entity",
+            "name": "QFS",
+            "field": null,
+            "description": "Query-focused summarization methods that address global questions directed at entire text corpora but do not scale to large quantities of text.",
+            "display_name": "QFS",
+            "id": "e348c15e-2c6d-4900-b17f-4bfeae726c61"
+        },
+        {
+            "node_type": "Entity",
+            "name": "LLMs",
+            "field": null,
+            "description": "Large language models used to build the graph index in GraphRAG through entity knowledge graph derivation and community summary generation.",
+            "display_name": "LLMs",
+            "id": "2daa1b73-ad62-4b63-9fa0-0a8aaed19364"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Entity Knowledge Graph",
+            "field": null,
+            "description": "First stage of GraphRAG's graph index construction where an LLM derives a knowledge graph from source documents by extracting entities and their relationships.",
+            "display_name": "Entity Knowledge Graph",
+            "id": "739e5194-bec6-49cc-b300-7fbcff5c5e01"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Community Summaries",
+            "field": null,
+            "description": "Second stage of GraphRAG where pre-generated summaries are created for groups of closely related entities in the knowledge graph, used to generate partial responses to questions.",
+            "display_name": "Community Summaries",
+            "id": "ea2d6501-36bd-4b8c-97d5-cdfce07949d9"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Global Sensemaking Questions",
+            "field": null,
+            "description": "Class of questions directed at entire text corpora, such as identifying main themes, which conventional RAG fails to address effectively.",
+            "display_name": "Global Sensemaking Questions",
+            "id": "4825f8ec-cf57-4557-90ec-6ef738a24f13"
+        },
+        {
+            "node_type": "Paper",
+            "title": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "abstract": "Graph-based Retrieval-Augmented Generation (RAG) methods have significantly enhanced the performance of large language models (LLMs) in domain-specific tasks. However, existing RAG methods do not adequately utilize the naturally inherent hierarchical knowledge in human cognition, which limits the capabilities of RAG systems. In this paper, we introduce a new RAG approach, called HiRAG, which utilizes hierarchical knowledge to enhance the semantic understanding and structure capturing capabilities of RAG systems in the indexing and retrieval processes. Our extensive experiments demonstrate that HiRAG achieves significant performance improvements over the state-of-the-art baseline methods.1\n\nFootnote 1: https://github.com/hhy-huang/HiRAG",
+            "field": "ML",
+            "display_name": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "id": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+        },
+        {
+            "node_type": "Author",
+            "name": "Haoyu Huang",
+            "email": "haoyuhuang@kasma.ai",
+            "display_name": "Haoyu Huang",
+            "id": "73e149a0-5b50-4ec3-a56d-be2cccb4242a"
+        },
+        {
+            "node_type": "Affiliation",
+            "name": "KASMA.ai",
+            "display_name": "KASMA.ai",
+            "id": "KASMA.ai"
+        },
+        {
+            "node_type": "Author",
+            "name": "Yongfeng Huang",
+            "email": "yfhuang22@cse.cuhk.edu.hk",
+            "display_name": "Yongfeng Huang",
+            "id": "481ebe87-77cd-43ed-bff3-c1b88e2221dc"
+        },
+        {
+            "node_type": "Affiliation",
+            "name": "The Chinese University of Hong Kong",
+            "display_name": "The Chinese University of Hong Kong",
+            "id": "The Chinese University of Hong Kong"
+        },
+        {
+            "node_type": "Author",
+            "name": "Junjie Yang",
+            "email": null,
+            "display_name": "Junjie Yang",
+            "id": "75e8430a-e431-496e-97f3-f32b466587a2"
+        },
+        {
+            "node_type": "Author",
+            "name": "Zhenyu Pan",
+            "email": "zhenyupan@kasma.ai",
+            "display_name": "Zhenyu Pan",
+            "id": "8e0e771d-329d-4977-9dcc-df27f1e286aa"
+        },
+        {
+            "node_type": "Author",
+            "name": "Yongqiang Chen",
+            "email": "ychen@kasma.ai",
+            "display_name": "Yongqiang Chen",
+            "id": "02a967e3-1a75-4a5e-a342-517ded8537c3"
+        },
+        {
+            "node_type": "Author",
+            "name": "Kaili Ma",
+            "email": "klma@kasma.ai",
+            "display_name": "Kaili Ma",
+            "id": "7bec4c94-d932-4497-ba1a-2e816466ac3c"
+        },
+        {
+            "node_type": "Author",
+            "name": "Hongzhi Chen",
+            "email": "chenhongzhi@kasma.ai",
+            "display_name": "Hongzhi Chen",
+            "id": "009ef356-8b50-40d2-b529-b36ee012e59f"
+        },
+        {
+            "node_type": "Author",
+            "name": "James Cheng",
+            "email": "jcheng@cse.cuhk.edu.hk",
+            "display_name": "James Cheng",
+            "id": "894bc777-89d4-403f-aced-04c3431bc040"
+        },
+        {
+            "node_type": "Entity",
+            "name": "HiRAG",
+            "field": null,
+            "description": "A new Retrieval-Augmented Generation approach that utilizes hierarchical knowledge to enhance semantic understanding and structure capturing capabilities in the indexing and retrieval processes.",
+            "display_name": "HiRAG",
+            "id": "1bb6176b-11a6-4661-a430-cbc18a78fec9"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Hierarchical Knowledge",
+            "field": null,
+            "description": "The naturally inherent hierarchical knowledge in human cognition that existing RAG methods do not adequately utilize, which HiRAG leverages to improve performance.",
+            "display_name": "Hierarchical Knowledge",
+            "id": "9c7c1288-9058-4e14-b045-5de935077e85"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Graph-based RAG",
+            "field": null,
+            "description": "Existing Retrieval-Augmented Generation methods that have enhanced LLM performance but lack hierarchical knowledge utilization, serving as the baseline that HiRAG improves upon.",
+            "display_name": "Graph-based RAG",
+            "id": "b170bd79-3748-4895-8a41-95807afe91c7"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Semantic Understanding",
+            "field": null,
+            "description": "The capability of understanding meaning and context that HiRAG enhances through hierarchical knowledge utilization in RAG systems.",
+            "display_name": "Semantic Understanding",
+            "id": "4af26069-2d9c-4e26-8a64-cb1c3fe5b9c8"
+        },
+        {
+            "node_type": "Entity",
+            "name": "https://github.com/hhy-huang/HiRAG",
+            "field": null,
+            "description": "The GitHub repository containing the implementation and resources for the HiRAG framework.",
+            "display_name": "https://github.com/hhy-huang/HiRAG",
+            "id": "2bc8fb43-33c2-4429-9d5c-e349c015993f"
+        },
+        {
+            "node_type": "Paper",
+            "title": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "abstract": "This paper describes the KnowledgeHub tool, a scientific literature Information Extraction (IE) and Question Answering (QA) pipeline. This is achieved by supporting the ingestion of PDF documents that are converted to text and structured representations. An ontology can then be constructed where a user defines the types of entities and relationships they want to capture. A browser-based annotation tool enables annotating the contents of the PDF documents according to the ontology. Named Entity Recognition (NER) and Relation Classification (RC) models can be trained on the resulting annotations and can be used to annotate the unannotated portion of the documents. A knowledge graph is constructed from these entity and relation triples which can be queried to obtain insights from the data. Furthermore, we integrate a suite of Large Language Models (LLMs) that can be used for QA and summarisation that is grounded in the included documents via a retrieval component. KnowledgeHub is a unique tool that supports annotation, IE and QA, which gives the user full insight into the knowledge discovery pipeline.",
+            "field": "ML",
+            "display_name": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "id": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+        },
+        {
+            "node_type": "Author",
+            "name": "Shinnosuke Tanaka",
+            "email": "shinnosuke.tanaka@ibm.com",
+            "display_name": "Shinnosuke Tanaka",
+            "id": "f35a541a-9a9d-4cc4-8fba-d219f1cee3ee"
+        },
+        {
+            "node_type": "Affiliation",
+            "name": "IBM Research Europe",
+            "display_name": "IBM Research Europe",
+            "id": "IBM Research Europe"
+        },
+        {
+            "node_type": "Author",
+            "name": "James Barry",
+            "email": "james.barry@ibm.com",
+            "display_name": "James Barry",
+            "id": "9c6fd45e-43f3-490d-b5f4-6f0723488aa4"
+        },
+        {
+            "node_type": "Author",
+            "name": "Vishnudev Kuruvanthodi",
+            "email": "vishnudev.k@ibm.com",
+            "display_name": "Vishnudev Kuruvanthodi",
+            "id": "850eee64-1e57-4135-b660-0bb5c0f85408"
+        },
+        {
+            "node_type": "Author",
+            "name": "Movina Moses",
+            "email": "movina.moses@ibm.com",
+            "display_name": "Movina Moses",
+            "id": "e3c5fbf9-b5fe-411d-b925-7186457965c6"
+        },
+        {
+            "node_type": "Affiliation",
+            "name": "IBM Research",
+            "display_name": "IBM Research",
+            "id": "IBM Research"
+        },
+        {
+            "node_type": "Author",
+            "name": "Maxwell J. Giammona",
+            "email": "maxwell.giammona@ibm.com",
+            "display_name": "Maxwell J. Giammona",
+            "id": "cf9ff717-e687-435b-b455-84610d136ee7"
+        },
+        {
+            "node_type": "Author",
+            "name": "Nathan Herr",
+            "email": "uceenhe@ucl.ac.uk",
+            "display_name": "Nathan Herr",
+            "id": "598b1443-d673-4016-ab32-8079a3f68d7e"
+        },
+        {
+            "node_type": "Affiliation",
+            "name": "University College London",
+            "display_name": "University College London",
+            "id": "University College London"
+        },
+        {
+            "node_type": "Author",
+            "name": "Mohab Elkaref",
+            "email": "mohab.elkaref@ibm.com",
+            "display_name": "Mohab Elkaref",
+            "id": "3a261997-89b6-4758-b20c-656bab2beda5"
+        },
+        {
+            "node_type": "Author",
+            "name": "Geeth De Mel",
+            "email": "geeth.demel@uk.ibm.com",
+            "display_name": "Geeth De Mel",
+            "id": "46df4552-e5d6-4a12-a947-8974790f34ad"
+        },
+        {
+            "node_type": "Entity",
+            "name": "KnowledgeHub",
+            "field": null,
+            "description": "A scientific literature Information Extraction and Question Answering pipeline that supports PDF ingestion, annotation, entity recognition, relation classification, and knowledge graph construction with integrated LLM capabilities.",
+            "display_name": "KnowledgeHub",
+            "id": "d7078900-9e14-46ce-aea2-ace1f75f6e28"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Named Entity Recognition",
+            "field": null,
+            "description": "A method used within KnowledgeHub to identify and classify named entities in scientific documents based on user-defined ontologies and trained models.",
+            "display_name": "Named Entity Recognition",
+            "id": "c1921fd6-1e99-4519-b00a-3558f04d16ae"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Relation Classification",
+            "field": null,
+            "description": "A method employed by KnowledgeHub to classify relationships between identified entities in scientific literature, trained on annotated data.",
+            "display_name": "Relation Classification",
+            "id": "e4abc00d-2046-474b-87b7-874f3bcd7efc"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Knowledge Graph",
+            "field": null,
+            "description": "A structured representation constructed from entity and relation triples extracted by KnowledgeHub, enabling querying and insights from scientific documents.",
+            "display_name": "Knowledge Graph",
+            "id": "e5cec844-16d0-4b73-88dd-b85efbee2197"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Large Language Models",
+            "field": null,
+            "description": "AI models integrated into KnowledgeHub for Question Answering and summarization tasks, grounded in document content through retrieval mechanisms.",
+            "display_name": "Large Language Models",
+            "id": "9dcf6e7c-599e-4b1a-8c56-971db9eade69"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Annotation Tool",
+            "field": null,
+            "description": "A browser-based component of KnowledgeHub that enables users to annotate PDF documents according to custom ontologies for entity and relationship extraction.",
+            "display_name": "Annotation Tool",
+            "id": "6b1f470a-ee3b-4dba-8d5c-ab74cf67303a"
+        },
+        {
+            "node_type": "Paper",
+            "title": "Nougat: Neural Optical Understanding for Academic Documents",
+            "abstract": "Scientific knowledge is predominantly stored in books and scientific journals, often in the form of PDFs. However, the PDF format leads to a loss of semantic information, particularly for mathematical expressions. We propose Nougat (Neural Optical Understanding for Academic Dcuments), a Visual Transformer model that performs an Optical Character Recognition (OCR) task for processing scientific documents into a markup language, and demonstrate the effectiveness of our model on a new dataset of scientific documents. The proposed approach offers a promising solution to enhance the accessibility of scientific knowledge in the digital age, by bridging the gap between human-readable documents and machine-readable text. We release the models and code to accelerate future work on scientific text recognition.",
+            "field": "ML",
+            "display_name": "Nougat: Neural Optical Understanding for Academic Documents",
+            "id": "Nougat: Neural Optical Understanding for Academic Documents"
+        },
+        {
+            "node_type": "Author",
+            "name": "Lukas Blecher",
+            "email": "lblecher@meta.com",
+            "display_name": "Lukas Blecher",
+            "id": "fed8ac1e-1432-4118-8f91-1b9d1ed44999"
+        },
+        {
+            "node_type": "Affiliation",
+            "name": "Meta AI",
+            "display_name": "Meta AI",
+            "id": "Meta AI"
+        },
+        {
+            "node_type": "Author",
+            "name": "Guillem Cucurull",
+            "email": null,
+            "display_name": "Guillem Cucurull",
+            "id": "e7e288b8-ae0a-48b4-bef0-6f7c3714f6fb"
+        },
+        {
+            "node_type": "Author",
+            "name": "Thomas Scialom",
+            "email": null,
+            "display_name": "Thomas Scialom",
+            "id": "94cfd84b-f4d4-4796-bdb8-83849041c15b"
+        },
+        {
+            "node_type": "Author",
+            "name": "Robert Stojnic",
+            "email": null,
+            "display_name": "Robert Stojnic",
+            "id": "a427516a-0cc9-4819-a178-d8e509036d69"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Nougat",
+            "field": null,
+            "description": "Neural Optical Understanding for Academic Documents, a Visual Transformer model that performs OCR for scientific documents to convert them into markup language, specifically designed to handle mathematical expressions in PDFs.",
+            "display_name": "Nougat",
+            "id": "2ae35375-3720-4e11-8e08-14ac49065261"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Scientific PDFs",
+            "field": null,
+            "description": "Scientific documents stored in PDF format that lose semantic information, particularly for mathematical expressions, creating accessibility issues for machine processing.",
+            "display_name": "Scientific PDFs",
+            "id": "10e08058-c487-4e57-b0de-0c3b6525d74b"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Mathematical expressions",
+            "field": null,
+            "description": "Specific content in scientific documents that suffers from semantic information loss when stored in PDF format, making them difficult for machines to process accurately.",
+            "display_name": "Mathematical expressions",
+            "id": "371468b2-622a-46da-81b2-e495fef3d603"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Markup language",
+            "field": null,
+            "description": "Machine-readable text format that Nougat converts scientific PDFs into, preserving semantic information and enhancing accessibility.",
+            "display_name": "Markup language",
+            "id": "db78a55f-a330-4496-b476-408da27cf8d6"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Visual Transformer model",
+            "field": null,
+            "description": "The neural architecture used by Nougat to perform optical character recognition on scientific documents, enabling the conversion from PDF to markup language.",
+            "display_name": "Visual Transformer model",
+            "id": "fe659d99-0578-4840-a3bc-84d26e186910"
+        },
+        {
+            "node_type": "Entity",
+            "name": "New dataset of scientific documents",
+            "field": null,
+            "description": "A newly created dataset used to demonstrate the effectiveness of the Nougat model in processing scientific documents into machine-readable markup language.",
+            "display_name": "New dataset of scientific documents",
+            "id": "be439ff2-41b3-4478-856e-2dccfa0ded60"
+        },
+        {
+            "node_type": "Paper",
+            "title": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "abstract": "We introduce Zep, a novel memory layer service for AI agents that outperforms the current state-of-the-art system, MemGPT, in the Deep Memory Retrieval (DMR) benchmark. Additionally, Zep excels in more comprehensive and challenging evaluations than DMR that better reflect real-world enterprise use cases. While existing retrieval-augmented generation (RAG) frameworks for large language model (LLM)-based agents are limited to static document retrieval, enterprise applications demand dynamic knowledge integration from diverse sources including ongoing conversations and business data. Zep addresses this fundamental limitation through its core component Graphiti--a temporally-aware knowledge graph engine that dynamically synthesizes both unstructured conversational data and structured business data while maintaining historical relationships. In the DMR benchmark, which the MemGPT team established as their primary evaluation metric, Zep demonstrates superior performance (94.8% vs 93.4%). Beyond DMR, Zep's capabilities are further validated through the more challenging LongMemEval benchmark, which better reflects enterprise use cases through complex temporal reasoning tasks. In this evaluation, Zep achieves substantial results with accuracy improvements of up to 18.5% while simultaneously reducing response latency by 90% compared to baseline implementations. These results are particularly pronounced in enterprise-critical tasks such as cross-session information synthesis and long-term context maintenance, demonstrating Zep's effectiveness for deployment in real-world applications.",
+            "field": "ML",
+            "display_name": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "id": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory"
+        },
+        {
+            "node_type": "Author",
+            "name": "Preston Rasmussen",
+            "email": "preston@getzep.com",
+            "display_name": "Preston Rasmussen",
+            "id": "51a9c3d2-b92a-4f84-a21e-221cc460656f"
+        },
+        {
+            "node_type": "Affiliation",
+            "name": "Zep AI",
+            "display_name": "Zep AI",
+            "id": "Zep AI"
+        },
+        {
+            "node_type": "Author",
+            "name": "Pavlo Paliychuk",
+            "email": "paul@getzep.com",
+            "display_name": "Pavlo Paliychuk",
+            "id": "9b6d4c0a-fecc-48e9-8370-7b9753c6da0b"
+        },
+        {
+            "node_type": "Author",
+            "name": "Travis Beauvais",
+            "email": "travis@getzep.com",
+            "display_name": "Travis Beauvais",
+            "id": "0788cef0-7e28-4e27-9852-7b6ae0a8abf4"
+        },
+        {
+            "node_type": "Author",
+            "name": "Jack Ryan",
+            "email": "jack@getzep.com",
+            "display_name": "Jack Ryan",
+            "id": "1a2fe384-d088-4982-bdd1-e5fe9935862b"
+        },
+        {
+            "node_type": "Author",
+            "name": "Daniel Chalef",
+            "email": "daniel@getzep.com",
+            "display_name": "Daniel Chalef",
+            "id": "e515aac0-cb1f-47d2-ad98-19ab9467ec3e"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Zep",
+            "field": null,
+            "description": "A novel memory layer service for AI agents that outperforms MemGPT in the DMR benchmark and excels in enterprise use cases through dynamic knowledge integration from diverse sources including conversations and business data.",
+            "display_name": "Zep",
+            "id": "98281ff1-956f-4e5f-b144-8aa49b47f22e"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Graphiti",
+            "field": null,
+            "description": "The core component of Zep, a temporally-aware knowledge graph engine that dynamically synthesizes both unstructured conversational data and structured business data while maintaining historical relationships.",
+            "display_name": "Graphiti",
+            "id": "8255b819-2138-4797-b8c9-394d0b834b2b"
+        },
+        {
+            "node_type": "Entity",
+            "name": "MemGPT",
+            "field": null,
+            "description": "The current state-of-the-art system that Zep outperforms in the Deep Memory Retrieval (DMR) benchmark, serving as the primary comparison baseline.",
+            "display_name": "MemGPT",
+            "id": "a1705c1f-073b-4855-b3ae-efe97556dc41"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Deep Memory Retrieval (DMR) benchmark",
+            "field": null,
+            "description": "The primary evaluation metric established by the MemGPT team where Zep demonstrates superior performance (94.8% vs 93.4%) compared to MemGPT.",
+            "display_name": "Deep Memory Retrieval (DMR) benchmark",
+            "id": "abcf792f-7d7c-4bdf-a0fc-3d380f24e0c6"
+        },
+        {
+            "node_type": "Entity",
+            "name": "LongMemEval benchmark",
+            "field": null,
+            "description": "A more challenging evaluation benchmark that better reflects enterprise use cases through complex temporal reasoning tasks, where Zep achieves substantial accuracy improvements of up to 18.5%.",
+            "display_name": "LongMemEval benchmark",
+            "id": "3e7ce63a-4d09-4a3d-931f-98bb32f7da01"
+        },
+        {
+            "node_type": "Entity",
+            "name": "Retrieval-Augmented Generation (RAG) frameworks",
+            "field": null,
+            "description": "Existing frameworks for LLM-based agents that are limited to static document retrieval, which Zep addresses through dynamic knowledge integration capabilities.",
+            "display_name": "Retrieval-Augmented Generation (RAG) frameworks",
+            "id": "f4aef6ea-d5f9-4ec0-955a-523061f12fc4"
+        }
+    ],
+    "links": [
+        {
+            "relation": "is_associated_with",
+            "edge_type": "PaperAffiliation",
+            "display_info": "AutoAgents: A Framework for Automatic Agent Generation --**is_associated_with**--> Beijing Academy of Artificial Intelligence",
+            "source": "AutoAgents: A Framework for Automatic Agent Generation",
+            "target": "Beijing Academy of Artificial Intelligence",
+            "key": 0
+        },
+        {
+            "relation": "is_associated_with",
+            "edge_type": "PaperAffiliation",
+            "display_info": "AutoAgents: A Framework for Automatic Agent Generation --**is_associated_with**--> Hong Kong University of Science and Technology",
+            "source": "AutoAgents: A Framework for Automatic Agent Generation",
+            "target": "Hong Kong University of Science and Technology",
+            "key": 0
+        },
+        {
+            "relation": "is_associated_with",
+            "edge_type": "PaperAffiliation",
+            "display_info": "AutoAgents: A Framework for Automatic Agent Generation --**is_associated_with**--> Peking University",
+            "source": "AutoAgents: A Framework for Automatic Agent Generation",
+            "target": "Peking University",
+            "key": 0
+        },
+        {
+            "relation": "is_associated_with",
+            "edge_type": "PaperAffiliation",
+            "display_info": "AutoAgents: A Framework for Automatic Agent Generation --**is_associated_with**--> University of Waterloo",
+            "source": "AutoAgents: A Framework for Automatic Agent Generation",
+            "target": "University of Waterloo",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "AutoAgents: A Framework for Automatic Agent Generation --**researchs**--> AutoAgents",
+            "source": "AutoAgents: A Framework for Automatic Agent Generation",
+            "target": "32b7c1b3-f271-4a41-96f1-c20b6ee0d0be",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "AutoAgents: A Framework for Automatic Agent Generation --**researchs**--> Multi-agent systems",
+            "source": "AutoAgents: A Framework for Automatic Agent Generation",
+            "target": "6be6ed66-d22a-4307-810f-df6f1a305d93",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "AutoAgents: A Framework for Automatic Agent Generation --**researchs**--> LLM-based multi-agent approaches",
+            "source": "AutoAgents: A Framework for Automatic Agent Generation",
+            "target": "23520d71-a79e-4112-a4a9-f467e425e861",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "AutoAgents: A Framework for Automatic Agent Generation --**researchs**--> Observer role",
+            "source": "AutoAgents: A Framework for Automatic Agent Generation",
+            "target": "3bbf285f-9445-4c0b-9e7d-d356a531ec6a",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "AutoAgents: A Framework for Automatic Agent Generation --**researchs**--> https://github.com/Link-AGI/AutoAgents",
+            "source": "AutoAgents: A Framework for Automatic Agent Generation",
+            "target": "971eef7a-cd43-4519-9e39-aad5c846a31e",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 1,
+            "weight": 0.0,
+            "display_info": "Guangyao Chen --**writes**--> AutoAgents: A Framework for Automatic Agent Generation",
+            "source": "1e372cd0-2857-4506-8d78-7c7564a3f4fc",
+            "target": "AutoAgents: A Framework for Automatic Agent Generation",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Guangyao Chen --**is_affiliated_with**--> Peking University",
+            "source": "1e372cd0-2857-4506-8d78-7c7564a3f4fc",
+            "target": "Peking University",
+            "key": 0
+        },
+        {
+            "relation": "collaborates_with",
+            "edge_type": "AffiliationCollaboration",
+            "weight": 0.0,
+            "collaboration_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Peking University --**collaborates_with**--> Beijing Academy of Artificial Intelligence",
+            "source": "Peking University",
+            "target": "Beijing Academy of Artificial Intelligence",
+            "key": 0
+        },
+        {
+            "relation": "collaborates_with",
+            "edge_type": "AffiliationCollaboration",
+            "weight": 0.0,
+            "collaboration_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Peking University --**collaborates_with**--> Hong Kong University of Science and Technology",
+            "source": "Peking University",
+            "target": "Hong Kong University of Science and Technology",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 2,
+            "weight": 0.0,
+            "display_info": "Siwei Dong --**writes**--> AutoAgents: A Framework for Automatic Agent Generation",
+            "source": "9220ea63-ac9c-4792-9820-d3e4b7f64965",
+            "target": "AutoAgents: A Framework for Automatic Agent Generation",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Siwei Dong --**is_affiliated_with**--> Peking University",
+            "source": "9220ea63-ac9c-4792-9820-d3e4b7f64965",
+            "target": "Peking University",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Siwei Dong --**coauthor_of**--> Guangyao Chen",
+            "source": "9220ea63-ac9c-4792-9820-d3e4b7f64965",
+            "target": "1e372cd0-2857-4506-8d78-7c7564a3f4fc",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Siwei Dong --**coauthor_of**--> Yu Shu",
+            "source": "9220ea63-ac9c-4792-9820-d3e4b7f64965",
+            "target": "921af902-ea41-43d1-85af-8aa6228a409c",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Siwei Dong --**coauthor_of**--> Jaward Sesay",
+            "source": "9220ea63-ac9c-4792-9820-d3e4b7f64965",
+            "target": "a4014750-b865-4159-b53d-6cde361e8d83",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Siwei Dong --**coauthor_of**--> Borje Karlsson",
+            "source": "9220ea63-ac9c-4792-9820-d3e4b7f64965",
+            "target": "d63c5005-6911-4dba-8c5d-8fad00e690ac",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Siwei Dong --**coauthor_of**--> Jie Fu",
+            "source": "9220ea63-ac9c-4792-9820-d3e4b7f64965",
+            "target": "bd93df24-2df0-4523-9e81-7fc6b32423c5",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Siwei Dong --**coauthor_of**--> Yemin Shi",
+            "source": "9220ea63-ac9c-4792-9820-d3e4b7f64965",
+            "target": "2916d990-c040-4ca7-8b0d-53e92fb7523e",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 3,
+            "weight": 0.0,
+            "display_info": "Yu Shu --**writes**--> AutoAgents: A Framework for Automatic Agent Generation",
+            "source": "921af902-ea41-43d1-85af-8aa6228a409c",
+            "target": "AutoAgents: A Framework for Automatic Agent Generation",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Yu Shu --**is_affiliated_with**--> Peking University",
+            "source": "921af902-ea41-43d1-85af-8aa6228a409c",
+            "target": "Peking University",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Yu Shu --**coauthor_of**--> Guangyao Chen",
+            "source": "921af902-ea41-43d1-85af-8aa6228a409c",
+            "target": "1e372cd0-2857-4506-8d78-7c7564a3f4fc",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Yu Shu --**coauthor_of**--> Borje Karlsson",
+            "source": "921af902-ea41-43d1-85af-8aa6228a409c",
+            "target": "d63c5005-6911-4dba-8c5d-8fad00e690ac",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 4,
+            "weight": 0.0,
+            "display_info": "Ge Zhang --**writes**--> AutoAgents: A Framework for Automatic Agent Generation",
+            "source": "6ba3a1f0-07ff-42a2-84fb-b1e9cd2e9229",
+            "target": "AutoAgents: A Framework for Automatic Agent Generation",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Ge Zhang --**is_affiliated_with**--> University of Waterloo",
+            "source": "6ba3a1f0-07ff-42a2-84fb-b1e9cd2e9229",
+            "target": "University of Waterloo",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Ge Zhang --**coauthor_of**--> Guangyao Chen",
+            "source": "6ba3a1f0-07ff-42a2-84fb-b1e9cd2e9229",
+            "target": "1e372cd0-2857-4506-8d78-7c7564a3f4fc",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Ge Zhang --**coauthor_of**--> Siwei Dong",
+            "source": "6ba3a1f0-07ff-42a2-84fb-b1e9cd2e9229",
+            "target": "9220ea63-ac9c-4792-9820-d3e4b7f64965",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Ge Zhang --**coauthor_of**--> Yu Shu",
+            "source": "6ba3a1f0-07ff-42a2-84fb-b1e9cd2e9229",
+            "target": "921af902-ea41-43d1-85af-8aa6228a409c",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Ge Zhang --**coauthor_of**--> Jaward Sesay",
+            "source": "6ba3a1f0-07ff-42a2-84fb-b1e9cd2e9229",
+            "target": "a4014750-b865-4159-b53d-6cde361e8d83",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Ge Zhang --**coauthor_of**--> Borje Karlsson",
+            "source": "6ba3a1f0-07ff-42a2-84fb-b1e9cd2e9229",
+            "target": "d63c5005-6911-4dba-8c5d-8fad00e690ac",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Ge Zhang --**coauthor_of**--> Jie Fu",
+            "source": "6ba3a1f0-07ff-42a2-84fb-b1e9cd2e9229",
+            "target": "bd93df24-2df0-4523-9e81-7fc6b32423c5",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Ge Zhang --**coauthor_of**--> Yemin Shi",
+            "source": "6ba3a1f0-07ff-42a2-84fb-b1e9cd2e9229",
+            "target": "2916d990-c040-4ca7-8b0d-53e92fb7523e",
+            "key": 0
+        },
+        {
+            "relation": "collaborates_with",
+            "edge_type": "AffiliationCollaboration",
+            "weight": 0.0,
+            "collaboration_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "University of Waterloo --**collaborates_with**--> Beijing Academy of Artificial Intelligence",
+            "source": "University of Waterloo",
+            "target": "Beijing Academy of Artificial Intelligence",
+            "key": 0
+        },
+        {
+            "relation": "collaborates_with",
+            "edge_type": "AffiliationCollaboration",
+            "weight": 0.0,
+            "collaboration_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "University of Waterloo --**collaborates_with**--> Hong Kong University of Science and Technology",
+            "source": "University of Waterloo",
+            "target": "Hong Kong University of Science and Technology",
+            "key": 0
+        },
+        {
+            "relation": "collaborates_with",
+            "edge_type": "AffiliationCollaboration",
+            "weight": 0.0,
+            "collaboration_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "University of Waterloo --**collaborates_with**--> Peking University",
+            "source": "University of Waterloo",
+            "target": "Peking University",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 5,
+            "weight": 0.0,
+            "display_info": "Jaward Sesay --**writes**--> AutoAgents: A Framework for Automatic Agent Generation",
+            "source": "a4014750-b865-4159-b53d-6cde361e8d83",
+            "target": "AutoAgents: A Framework for Automatic Agent Generation",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Jaward Sesay --**is_affiliated_with**--> Beijing Academy of Artificial Intelligence",
+            "source": "a4014750-b865-4159-b53d-6cde361e8d83",
+            "target": "Beijing Academy of Artificial Intelligence",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Jaward Sesay --**coauthor_of**--> Guangyao Chen",
+            "source": "a4014750-b865-4159-b53d-6cde361e8d83",
+            "target": "1e372cd0-2857-4506-8d78-7c7564a3f4fc",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Jaward Sesay --**coauthor_of**--> Yu Shu",
+            "source": "a4014750-b865-4159-b53d-6cde361e8d83",
+            "target": "921af902-ea41-43d1-85af-8aa6228a409c",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Jaward Sesay --**coauthor_of**--> Borje Karlsson",
+            "source": "a4014750-b865-4159-b53d-6cde361e8d83",
+            "target": "d63c5005-6911-4dba-8c5d-8fad00e690ac",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 6,
+            "weight": 0.0,
+            "display_info": "Borje Karlsson --**writes**--> AutoAgents: A Framework for Automatic Agent Generation",
+            "source": "d63c5005-6911-4dba-8c5d-8fad00e690ac",
+            "target": "AutoAgents: A Framework for Automatic Agent Generation",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Borje Karlsson --**is_affiliated_with**--> Beijing Academy of Artificial Intelligence",
+            "source": "d63c5005-6911-4dba-8c5d-8fad00e690ac",
+            "target": "Beijing Academy of Artificial Intelligence",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Borje Karlsson --**coauthor_of**--> Guangyao Chen",
+            "source": "d63c5005-6911-4dba-8c5d-8fad00e690ac",
+            "target": "1e372cd0-2857-4506-8d78-7c7564a3f4fc",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 7,
+            "weight": 0.0,
+            "display_info": "Jie Fu --**writes**--> AutoAgents: A Framework for Automatic Agent Generation",
+            "source": "bd93df24-2df0-4523-9e81-7fc6b32423c5",
+            "target": "AutoAgents: A Framework for Automatic Agent Generation",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Jie Fu --**is_affiliated_with**--> Hong Kong University of Science and Technology",
+            "source": "bd93df24-2df0-4523-9e81-7fc6b32423c5",
+            "target": "Hong Kong University of Science and Technology",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Jie Fu --**coauthor_of**--> Guangyao Chen",
+            "source": "bd93df24-2df0-4523-9e81-7fc6b32423c5",
+            "target": "1e372cd0-2857-4506-8d78-7c7564a3f4fc",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Jie Fu --**coauthor_of**--> Yu Shu",
+            "source": "bd93df24-2df0-4523-9e81-7fc6b32423c5",
+            "target": "921af902-ea41-43d1-85af-8aa6228a409c",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Jie Fu --**coauthor_of**--> Jaward Sesay",
+            "source": "bd93df24-2df0-4523-9e81-7fc6b32423c5",
+            "target": "a4014750-b865-4159-b53d-6cde361e8d83",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Jie Fu --**coauthor_of**--> Borje Karlsson",
+            "source": "bd93df24-2df0-4523-9e81-7fc6b32423c5",
+            "target": "d63c5005-6911-4dba-8c5d-8fad00e690ac",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Jie Fu --**coauthor_of**--> Yemin Shi",
+            "source": "bd93df24-2df0-4523-9e81-7fc6b32423c5",
+            "target": "2916d990-c040-4ca7-8b0d-53e92fb7523e",
+            "key": 0
+        },
+        {
+            "relation": "collaborates_with",
+            "edge_type": "AffiliationCollaboration",
+            "weight": 0.0,
+            "collaboration_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Hong Kong University of Science and Technology --**collaborates_with**--> Beijing Academy of Artificial Intelligence",
+            "source": "Hong Kong University of Science and Technology",
+            "target": "Beijing Academy of Artificial Intelligence",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 8,
+            "weight": 0.0,
+            "display_info": "Yemin Shi --**writes**--> AutoAgents: A Framework for Automatic Agent Generation",
+            "source": "2916d990-c040-4ca7-8b0d-53e92fb7523e",
+            "target": "AutoAgents: A Framework for Automatic Agent Generation",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Yemin Shi --**is_affiliated_with**--> Peking University",
+            "source": "2916d990-c040-4ca7-8b0d-53e92fb7523e",
+            "target": "Peking University",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Yemin Shi --**coauthor_of**--> Guangyao Chen",
+            "source": "2916d990-c040-4ca7-8b0d-53e92fb7523e",
+            "target": "1e372cd0-2857-4506-8d78-7c7564a3f4fc",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Yemin Shi --**coauthor_of**--> Yu Shu",
+            "source": "2916d990-c040-4ca7-8b0d-53e92fb7523e",
+            "target": "921af902-ea41-43d1-85af-8aa6228a409c",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Yemin Shi --**coauthor_of**--> Jaward Sesay",
+            "source": "2916d990-c040-4ca7-8b0d-53e92fb7523e",
+            "target": "a4014750-b865-4159-b53d-6cde361e8d83",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "AutoAgents: A Framework for Automatic Agent Generation"
+            ],
+            "display_info": "Yemin Shi --**coauthor_of**--> Borje Karlsson",
+            "source": "2916d990-c040-4ca7-8b0d-53e92fb7523e",
+            "target": "d63c5005-6911-4dba-8c5d-8fad00e690ac",
+            "key": 0
+        },
+        {
+            "relation": "is_associated_with",
+            "edge_type": "PaperAffiliation",
+            "display_info": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization --**is_associated_with**--> Microsoft Office of the CTO",
+            "source": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "target": "Microsoft Office of the CTO",
+            "key": 0
+        },
+        {
+            "relation": "is_associated_with",
+            "edge_type": "PaperAffiliation",
+            "display_info": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization --**is_associated_with**--> Microsoft Research",
+            "source": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "target": "Microsoft Research",
+            "key": 0
+        },
+        {
+            "relation": "is_associated_with",
+            "edge_type": "PaperAffiliation",
+            "display_info": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization --**is_associated_with**--> Microsoft Strategic Missions and Technologies",
+            "source": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "target": "Microsoft Strategic Missions and Technologies",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization --**researchs**--> GraphRAG",
+            "source": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "target": "a087c349-3556-4a82-b30d-cb1637d6cdf1",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization --**researchs**--> RAG",
+            "source": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "target": "c2fc09be-3fb7-419e-a38e-182b5f1a3b6e",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization --**researchs**--> QFS",
+            "source": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "target": "e348c15e-2c6d-4900-b17f-4bfeae726c61",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization --**researchs**--> LLMs",
+            "source": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "target": "2daa1b73-ad62-4b63-9fa0-0a8aaed19364",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization --**researchs**--> Entity Knowledge Graph",
+            "source": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "target": "739e5194-bec6-49cc-b300-7fbcff5c5e01",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization --**researchs**--> Community Summaries",
+            "source": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "target": "ea2d6501-36bd-4b8c-97d5-cdfce07949d9",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization --**researchs**--> Global Sensemaking Questions",
+            "source": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "target": "4825f8ec-cf57-4557-90ec-6ef738a24f13",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 1,
+            "weight": 0.0,
+            "display_info": "Darren Edge --**writes**--> From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "source": "2b5aa571-9b0d-45c2-9b64-9bd2265ae17b",
+            "target": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Darren Edge --**is_affiliated_with**--> Microsoft Research",
+            "source": "2b5aa571-9b0d-45c2-9b64-9bd2265ae17b",
+            "target": "Microsoft Research",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Darren Edge --**coauthor_of**--> Newman Cheng",
+            "source": "2b5aa571-9b0d-45c2-9b64-9bd2265ae17b",
+            "target": "987d6cb9-4023-49c7-99de-565e7d6b4bdd",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Darren Edge --**coauthor_of**--> Joshua Bradley",
+            "source": "2b5aa571-9b0d-45c2-9b64-9bd2265ae17b",
+            "target": "495b1b26-81f1-498f-afd7-d443573bd8c3",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Darren Edge --**coauthor_of**--> Robert Osazuwa Ness",
+            "source": "2b5aa571-9b0d-45c2-9b64-9bd2265ae17b",
+            "target": "7ca2f41c-5900-4b96-b87d-59fc6900dc59",
+            "key": 0
+        },
+        {
+            "relation": "collaborates_with",
+            "edge_type": "AffiliationCollaboration",
+            "weight": 0.0,
+            "collaboration_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Microsoft Research --**collaborates_with**--> Microsoft Office of the CTO",
+            "source": "Microsoft Research",
+            "target": "Microsoft Office of the CTO",
+            "key": 0
+        },
+        {
+            "relation": "collaborates_with",
+            "edge_type": "AffiliationCollaboration",
+            "weight": 0.0,
+            "collaboration_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Microsoft Research --**collaborates_with**--> Microsoft Strategic Missions and Technologies",
+            "source": "Microsoft Research",
+            "target": "Microsoft Strategic Missions and Technologies",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 1,
+            "weight": 0.0,
+            "display_info": "Ha Trinh --**writes**--> From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "source": "13280995-4693-4de5-895d-ac5814df21c5",
+            "target": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Ha Trinh --**is_affiliated_with**--> Microsoft Research",
+            "source": "13280995-4693-4de5-895d-ac5814df21c5",
+            "target": "Microsoft Research",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Ha Trinh --**coauthor_of**--> Darren Edge",
+            "source": "13280995-4693-4de5-895d-ac5814df21c5",
+            "target": "2b5aa571-9b0d-45c2-9b64-9bd2265ae17b",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Ha Trinh --**coauthor_of**--> Newman Cheng",
+            "source": "13280995-4693-4de5-895d-ac5814df21c5",
+            "target": "987d6cb9-4023-49c7-99de-565e7d6b4bdd",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Ha Trinh --**coauthor_of**--> Joshua Bradley",
+            "source": "13280995-4693-4de5-895d-ac5814df21c5",
+            "target": "495b1b26-81f1-498f-afd7-d443573bd8c3",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Ha Trinh --**coauthor_of**--> Alex Chao",
+            "source": "13280995-4693-4de5-895d-ac5814df21c5",
+            "target": "a4cd8bc7-4549-426c-bc95-74d5b776a7df",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Ha Trinh --**coauthor_of**--> Steven Truitt",
+            "source": "13280995-4693-4de5-895d-ac5814df21c5",
+            "target": "6d684f78-d65b-4a83-b7e1-6cb83bcb7b73",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Ha Trinh --**coauthor_of**--> Dasha Metropolitansky",
+            "source": "13280995-4693-4de5-895d-ac5814df21c5",
+            "target": "d0735f09-d395-45b0-b06e-906286bae306",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Ha Trinh --**coauthor_of**--> Robert Osazuwa Ness",
+            "source": "13280995-4693-4de5-895d-ac5814df21c5",
+            "target": "7ca2f41c-5900-4b96-b87d-59fc6900dc59",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Ha Trinh --**coauthor_of**--> Jonathan Larson",
+            "source": "13280995-4693-4de5-895d-ac5814df21c5",
+            "target": "0d30f609-b23c-478a-a2fe-f2c65d9d82e4",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 3,
+            "weight": 0.0,
+            "display_info": "Newman Cheng --**writes**--> From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "source": "987d6cb9-4023-49c7-99de-565e7d6b4bdd",
+            "target": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Newman Cheng --**is_affiliated_with**--> Microsoft Strategic Missions and Technologies",
+            "source": "987d6cb9-4023-49c7-99de-565e7d6b4bdd",
+            "target": "Microsoft Strategic Missions and Technologies",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 3,
+            "weight": 0.0,
+            "display_info": "Joshua Bradley --**writes**--> From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "source": "495b1b26-81f1-498f-afd7-d443573bd8c3",
+            "target": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Joshua Bradley --**is_affiliated_with**--> Microsoft Strategic Missions and Technologies",
+            "source": "495b1b26-81f1-498f-afd7-d443573bd8c3",
+            "target": "Microsoft Strategic Missions and Technologies",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Joshua Bradley --**coauthor_of**--> Newman Cheng",
+            "source": "495b1b26-81f1-498f-afd7-d443573bd8c3",
+            "target": "987d6cb9-4023-49c7-99de-565e7d6b4bdd",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Joshua Bradley --**coauthor_of**--> Robert Osazuwa Ness",
+            "source": "495b1b26-81f1-498f-afd7-d443573bd8c3",
+            "target": "7ca2f41c-5900-4b96-b87d-59fc6900dc59",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 5,
+            "weight": 0.0,
+            "display_info": "Alex Chao --**writes**--> From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "source": "a4cd8bc7-4549-426c-bc95-74d5b776a7df",
+            "target": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Alex Chao --**is_affiliated_with**--> Microsoft Office of the CTO",
+            "source": "a4cd8bc7-4549-426c-bc95-74d5b776a7df",
+            "target": "Microsoft Office of the CTO",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Alex Chao --**coauthor_of**--> Darren Edge",
+            "source": "a4cd8bc7-4549-426c-bc95-74d5b776a7df",
+            "target": "2b5aa571-9b0d-45c2-9b64-9bd2265ae17b",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Alex Chao --**coauthor_of**--> Newman Cheng",
+            "source": "a4cd8bc7-4549-426c-bc95-74d5b776a7df",
+            "target": "987d6cb9-4023-49c7-99de-565e7d6b4bdd",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Alex Chao --**coauthor_of**--> Joshua Bradley",
+            "source": "a4cd8bc7-4549-426c-bc95-74d5b776a7df",
+            "target": "495b1b26-81f1-498f-afd7-d443573bd8c3",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Alex Chao --**coauthor_of**--> Steven Truitt",
+            "source": "a4cd8bc7-4549-426c-bc95-74d5b776a7df",
+            "target": "6d684f78-d65b-4a83-b7e1-6cb83bcb7b73",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Alex Chao --**coauthor_of**--> Dasha Metropolitansky",
+            "source": "a4cd8bc7-4549-426c-bc95-74d5b776a7df",
+            "target": "d0735f09-d395-45b0-b06e-906286bae306",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Alex Chao --**coauthor_of**--> Robert Osazuwa Ness",
+            "source": "a4cd8bc7-4549-426c-bc95-74d5b776a7df",
+            "target": "7ca2f41c-5900-4b96-b87d-59fc6900dc59",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Alex Chao --**coauthor_of**--> Jonathan Larson",
+            "source": "a4cd8bc7-4549-426c-bc95-74d5b776a7df",
+            "target": "0d30f609-b23c-478a-a2fe-f2c65d9d82e4",
+            "key": 0
+        },
+        {
+            "relation": "collaborates_with",
+            "edge_type": "AffiliationCollaboration",
+            "weight": 0.0,
+            "collaboration_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Microsoft Office of the CTO --**collaborates_with**--> Microsoft Strategic Missions and Technologies",
+            "source": "Microsoft Office of the CTO",
+            "target": "Microsoft Strategic Missions and Technologies",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 5,
+            "weight": 0.0,
+            "display_info": "Apurva Mody --**writes**--> From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "source": "96ff338a-609e-4c62-8915-b6c7aaeea9e3",
+            "target": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Apurva Mody --**is_affiliated_with**--> Microsoft Office of the CTO",
+            "source": "96ff338a-609e-4c62-8915-b6c7aaeea9e3",
+            "target": "Microsoft Office of the CTO",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Apurva Mody --**coauthor_of**--> Darren Edge",
+            "source": "96ff338a-609e-4c62-8915-b6c7aaeea9e3",
+            "target": "2b5aa571-9b0d-45c2-9b64-9bd2265ae17b",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Apurva Mody --**coauthor_of**--> Ha Trinh",
+            "source": "96ff338a-609e-4c62-8915-b6c7aaeea9e3",
+            "target": "13280995-4693-4de5-895d-ac5814df21c5",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Apurva Mody --**coauthor_of**--> Newman Cheng",
+            "source": "96ff338a-609e-4c62-8915-b6c7aaeea9e3",
+            "target": "987d6cb9-4023-49c7-99de-565e7d6b4bdd",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Apurva Mody --**coauthor_of**--> Joshua Bradley",
+            "source": "96ff338a-609e-4c62-8915-b6c7aaeea9e3",
+            "target": "495b1b26-81f1-498f-afd7-d443573bd8c3",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Apurva Mody --**coauthor_of**--> Alex Chao",
+            "source": "96ff338a-609e-4c62-8915-b6c7aaeea9e3",
+            "target": "a4cd8bc7-4549-426c-bc95-74d5b776a7df",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Apurva Mody --**coauthor_of**--> Steven Truitt",
+            "source": "96ff338a-609e-4c62-8915-b6c7aaeea9e3",
+            "target": "6d684f78-d65b-4a83-b7e1-6cb83bcb7b73",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Apurva Mody --**coauthor_of**--> Dasha Metropolitansky",
+            "source": "96ff338a-609e-4c62-8915-b6c7aaeea9e3",
+            "target": "d0735f09-d395-45b0-b06e-906286bae306",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Apurva Mody --**coauthor_of**--> Robert Osazuwa Ness",
+            "source": "96ff338a-609e-4c62-8915-b6c7aaeea9e3",
+            "target": "7ca2f41c-5900-4b96-b87d-59fc6900dc59",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Apurva Mody --**coauthor_of**--> Jonathan Larson",
+            "source": "96ff338a-609e-4c62-8915-b6c7aaeea9e3",
+            "target": "0d30f609-b23c-478a-a2fe-f2c65d9d82e4",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 5,
+            "weight": 0.0,
+            "display_info": "Steven Truitt --**writes**--> From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "source": "6d684f78-d65b-4a83-b7e1-6cb83bcb7b73",
+            "target": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Steven Truitt --**is_affiliated_with**--> Microsoft Strategic Missions and Technologies",
+            "source": "6d684f78-d65b-4a83-b7e1-6cb83bcb7b73",
+            "target": "Microsoft Strategic Missions and Technologies",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Steven Truitt --**coauthor_of**--> Darren Edge",
+            "source": "6d684f78-d65b-4a83-b7e1-6cb83bcb7b73",
+            "target": "2b5aa571-9b0d-45c2-9b64-9bd2265ae17b",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Steven Truitt --**coauthor_of**--> Newman Cheng",
+            "source": "6d684f78-d65b-4a83-b7e1-6cb83bcb7b73",
+            "target": "987d6cb9-4023-49c7-99de-565e7d6b4bdd",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Steven Truitt --**coauthor_of**--> Joshua Bradley",
+            "source": "6d684f78-d65b-4a83-b7e1-6cb83bcb7b73",
+            "target": "495b1b26-81f1-498f-afd7-d443573bd8c3",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Steven Truitt --**coauthor_of**--> Dasha Metropolitansky",
+            "source": "6d684f78-d65b-4a83-b7e1-6cb83bcb7b73",
+            "target": "d0735f09-d395-45b0-b06e-906286bae306",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Steven Truitt --**coauthor_of**--> Robert Osazuwa Ness",
+            "source": "6d684f78-d65b-4a83-b7e1-6cb83bcb7b73",
+            "target": "7ca2f41c-5900-4b96-b87d-59fc6900dc59",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Steven Truitt --**coauthor_of**--> Jonathan Larson",
+            "source": "6d684f78-d65b-4a83-b7e1-6cb83bcb7b73",
+            "target": "0d30f609-b23c-478a-a2fe-f2c65d9d82e4",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 6,
+            "weight": 0.0,
+            "display_info": "Dasha Metropolitansky --**writes**--> From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "source": "d0735f09-d395-45b0-b06e-906286bae306",
+            "target": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Dasha Metropolitansky --**is_affiliated_with**--> Microsoft Research",
+            "source": "d0735f09-d395-45b0-b06e-906286bae306",
+            "target": "Microsoft Research",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Dasha Metropolitansky --**coauthor_of**--> Darren Edge",
+            "source": "d0735f09-d395-45b0-b06e-906286bae306",
+            "target": "2b5aa571-9b0d-45c2-9b64-9bd2265ae17b",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Dasha Metropolitansky --**coauthor_of**--> Newman Cheng",
+            "source": "d0735f09-d395-45b0-b06e-906286bae306",
+            "target": "987d6cb9-4023-49c7-99de-565e7d6b4bdd",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Dasha Metropolitansky --**coauthor_of**--> Joshua Bradley",
+            "source": "d0735f09-d395-45b0-b06e-906286bae306",
+            "target": "495b1b26-81f1-498f-afd7-d443573bd8c3",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Dasha Metropolitansky --**coauthor_of**--> Robert Osazuwa Ness",
+            "source": "d0735f09-d395-45b0-b06e-906286bae306",
+            "target": "7ca2f41c-5900-4b96-b87d-59fc6900dc59",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 6,
+            "weight": 0.0,
+            "display_info": "Robert Osazuwa Ness --**writes**--> From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "source": "7ca2f41c-5900-4b96-b87d-59fc6900dc59",
+            "target": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Robert Osazuwa Ness --**is_affiliated_with**--> Microsoft Research",
+            "source": "7ca2f41c-5900-4b96-b87d-59fc6900dc59",
+            "target": "Microsoft Research",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Robert Osazuwa Ness --**coauthor_of**--> Newman Cheng",
+            "source": "7ca2f41c-5900-4b96-b87d-59fc6900dc59",
+            "target": "987d6cb9-4023-49c7-99de-565e7d6b4bdd",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 7,
+            "weight": 0.0,
+            "display_info": "Jonathan Larson --**writes**--> From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "source": "0d30f609-b23c-478a-a2fe-f2c65d9d82e4",
+            "target": "From Local to Global: A GraphRAG Approach to Query-Focused Summarization",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Jonathan Larson --**is_affiliated_with**--> Microsoft Research",
+            "source": "0d30f609-b23c-478a-a2fe-f2c65d9d82e4",
+            "target": "Microsoft Research",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Jonathan Larson --**coauthor_of**--> Darren Edge",
+            "source": "0d30f609-b23c-478a-a2fe-f2c65d9d82e4",
+            "target": "2b5aa571-9b0d-45c2-9b64-9bd2265ae17b",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Jonathan Larson --**coauthor_of**--> Newman Cheng",
+            "source": "0d30f609-b23c-478a-a2fe-f2c65d9d82e4",
+            "target": "987d6cb9-4023-49c7-99de-565e7d6b4bdd",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Jonathan Larson --**coauthor_of**--> Joshua Bradley",
+            "source": "0d30f609-b23c-478a-a2fe-f2c65d9d82e4",
+            "target": "495b1b26-81f1-498f-afd7-d443573bd8c3",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Jonathan Larson --**coauthor_of**--> Dasha Metropolitansky",
+            "source": "0d30f609-b23c-478a-a2fe-f2c65d9d82e4",
+            "target": "d0735f09-d395-45b0-b06e-906286bae306",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "From Local to Global: A GraphRAG Approach to Query-Focused Summarization"
+            ],
+            "display_info": "Jonathan Larson --**coauthor_of**--> Robert Osazuwa Ness",
+            "source": "0d30f609-b23c-478a-a2fe-f2c65d9d82e4",
+            "target": "7ca2f41c-5900-4b96-b87d-59fc6900dc59",
+            "key": 0
+        },
+        {
+            "relation": "is_associated_with",
+            "edge_type": "PaperAffiliation",
+            "display_info": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge --**is_associated_with**--> The Chinese University of Hong Kong",
+            "source": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "target": "The Chinese University of Hong Kong",
+            "key": 0
+        },
+        {
+            "relation": "is_associated_with",
+            "edge_type": "PaperAffiliation",
+            "display_info": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge --**is_associated_with**--> KASMA.ai",
+            "source": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "target": "KASMA.ai",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge --**researchs**--> HiRAG",
+            "source": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "target": "1bb6176b-11a6-4661-a430-cbc18a78fec9",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge --**researchs**--> Hierarchical Knowledge",
+            "source": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "target": "9c7c1288-9058-4e14-b045-5de935077e85",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge --**researchs**--> Graph-based RAG",
+            "source": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "target": "b170bd79-3748-4895-8a41-95807afe91c7",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge --**researchs**--> LLMs",
+            "source": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "target": "2daa1b73-ad62-4b63-9fa0-0a8aaed19364",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge --**researchs**--> Semantic Understanding",
+            "source": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "target": "4af26069-2d9c-4e26-8a64-cb1c3fe5b9c8",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge --**researchs**--> https://github.com/hhy-huang/HiRAG",
+            "source": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "target": "2bc8fb43-33c2-4429-9d5c-e349c015993f",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 1,
+            "weight": 0.0,
+            "display_info": "Haoyu Huang --**writes**--> HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "source": "73e149a0-5b50-4ec3-a56d-be2cccb4242a",
+            "target": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Haoyu Huang --**is_affiliated_with**--> KASMA.ai",
+            "source": "73e149a0-5b50-4ec3-a56d-be2cccb4242a",
+            "target": "KASMA.ai",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Haoyu Huang --**coauthor_of**--> Junjie Yang",
+            "source": "73e149a0-5b50-4ec3-a56d-be2cccb4242a",
+            "target": "75e8430a-e431-496e-97f3-f32b466587a2",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Haoyu Huang --**coauthor_of**--> Zhenyu Pan",
+            "source": "73e149a0-5b50-4ec3-a56d-be2cccb4242a",
+            "target": "8e0e771d-329d-4977-9dcc-df27f1e286aa",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Haoyu Huang --**coauthor_of**--> Yongqiang Chen",
+            "source": "73e149a0-5b50-4ec3-a56d-be2cccb4242a",
+            "target": "02a967e3-1a75-4a5e-a342-517ded8537c3",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Haoyu Huang --**coauthor_of**--> Kaili Ma",
+            "source": "73e149a0-5b50-4ec3-a56d-be2cccb4242a",
+            "target": "7bec4c94-d932-4497-ba1a-2e816466ac3c",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Haoyu Huang --**coauthor_of**--> Hongzhi Chen",
+            "source": "73e149a0-5b50-4ec3-a56d-be2cccb4242a",
+            "target": "009ef356-8b50-40d2-b529-b36ee012e59f",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Haoyu Huang --**coauthor_of**--> James Cheng",
+            "source": "73e149a0-5b50-4ec3-a56d-be2cccb4242a",
+            "target": "894bc777-89d4-403f-aced-04c3431bc040",
+            "key": 0
+        },
+        {
+            "relation": "collaborates_with",
+            "edge_type": "AffiliationCollaboration",
+            "weight": 0.0,
+            "collaboration_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "KASMA.ai --**collaborates_with**--> The Chinese University of Hong Kong",
+            "source": "KASMA.ai",
+            "target": "The Chinese University of Hong Kong",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 2,
+            "weight": 0.0,
+            "display_info": "Yongfeng Huang --**writes**--> HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "source": "481ebe87-77cd-43ed-bff3-c1b88e2221dc",
+            "target": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Yongfeng Huang --**is_affiliated_with**--> The Chinese University of Hong Kong",
+            "source": "481ebe87-77cd-43ed-bff3-c1b88e2221dc",
+            "target": "The Chinese University of Hong Kong",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Yongfeng Huang --**coauthor_of**--> Haoyu Huang",
+            "source": "481ebe87-77cd-43ed-bff3-c1b88e2221dc",
+            "target": "73e149a0-5b50-4ec3-a56d-be2cccb4242a",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Yongfeng Huang --**coauthor_of**--> Junjie Yang",
+            "source": "481ebe87-77cd-43ed-bff3-c1b88e2221dc",
+            "target": "75e8430a-e431-496e-97f3-f32b466587a2",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Yongfeng Huang --**coauthor_of**--> Zhenyu Pan",
+            "source": "481ebe87-77cd-43ed-bff3-c1b88e2221dc",
+            "target": "8e0e771d-329d-4977-9dcc-df27f1e286aa",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Yongfeng Huang --**coauthor_of**--> Yongqiang Chen",
+            "source": "481ebe87-77cd-43ed-bff3-c1b88e2221dc",
+            "target": "02a967e3-1a75-4a5e-a342-517ded8537c3",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Yongfeng Huang --**coauthor_of**--> Kaili Ma",
+            "source": "481ebe87-77cd-43ed-bff3-c1b88e2221dc",
+            "target": "7bec4c94-d932-4497-ba1a-2e816466ac3c",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Yongfeng Huang --**coauthor_of**--> Hongzhi Chen",
+            "source": "481ebe87-77cd-43ed-bff3-c1b88e2221dc",
+            "target": "009ef356-8b50-40d2-b529-b36ee012e59f",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Yongfeng Huang --**coauthor_of**--> James Cheng",
+            "source": "481ebe87-77cd-43ed-bff3-c1b88e2221dc",
+            "target": "894bc777-89d4-403f-aced-04c3431bc040",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 3,
+            "weight": 0.0,
+            "display_info": "Junjie Yang --**writes**--> HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "source": "75e8430a-e431-496e-97f3-f32b466587a2",
+            "target": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Junjie Yang --**is_affiliated_with**--> The Chinese University of Hong Kong",
+            "source": "75e8430a-e431-496e-97f3-f32b466587a2",
+            "target": "The Chinese University of Hong Kong",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Junjie Yang --**coauthor_of**--> Zhenyu Pan",
+            "source": "75e8430a-e431-496e-97f3-f32b466587a2",
+            "target": "8e0e771d-329d-4977-9dcc-df27f1e286aa",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Junjie Yang --**coauthor_of**--> Yongqiang Chen",
+            "source": "75e8430a-e431-496e-97f3-f32b466587a2",
+            "target": "02a967e3-1a75-4a5e-a342-517ded8537c3",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Junjie Yang --**coauthor_of**--> Kaili Ma",
+            "source": "75e8430a-e431-496e-97f3-f32b466587a2",
+            "target": "7bec4c94-d932-4497-ba1a-2e816466ac3c",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Junjie Yang --**coauthor_of**--> Hongzhi Chen",
+            "source": "75e8430a-e431-496e-97f3-f32b466587a2",
+            "target": "009ef356-8b50-40d2-b529-b36ee012e59f",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Junjie Yang --**coauthor_of**--> James Cheng",
+            "source": "75e8430a-e431-496e-97f3-f32b466587a2",
+            "target": "894bc777-89d4-403f-aced-04c3431bc040",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 4,
+            "weight": 0.0,
+            "display_info": "Zhenyu Pan --**writes**--> HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "source": "8e0e771d-329d-4977-9dcc-df27f1e286aa",
+            "target": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Zhenyu Pan --**is_affiliated_with**--> KASMA.ai",
+            "source": "8e0e771d-329d-4977-9dcc-df27f1e286aa",
+            "target": "KASMA.ai",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Zhenyu Pan --**coauthor_of**--> Yongqiang Chen",
+            "source": "8e0e771d-329d-4977-9dcc-df27f1e286aa",
+            "target": "02a967e3-1a75-4a5e-a342-517ded8537c3",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Zhenyu Pan --**coauthor_of**--> Kaili Ma",
+            "source": "8e0e771d-329d-4977-9dcc-df27f1e286aa",
+            "target": "7bec4c94-d932-4497-ba1a-2e816466ac3c",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Zhenyu Pan --**coauthor_of**--> Hongzhi Chen",
+            "source": "8e0e771d-329d-4977-9dcc-df27f1e286aa",
+            "target": "009ef356-8b50-40d2-b529-b36ee012e59f",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Zhenyu Pan --**coauthor_of**--> James Cheng",
+            "source": "8e0e771d-329d-4977-9dcc-df27f1e286aa",
+            "target": "894bc777-89d4-403f-aced-04c3431bc040",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 5,
+            "weight": 0.0,
+            "display_info": "Yongqiang Chen --**writes**--> HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "source": "02a967e3-1a75-4a5e-a342-517ded8537c3",
+            "target": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Yongqiang Chen --**is_affiliated_with**--> KASMA.ai",
+            "source": "02a967e3-1a75-4a5e-a342-517ded8537c3",
+            "target": "KASMA.ai",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Yongqiang Chen --**coauthor_of**--> Kaili Ma",
+            "source": "02a967e3-1a75-4a5e-a342-517ded8537c3",
+            "target": "7bec4c94-d932-4497-ba1a-2e816466ac3c",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Yongqiang Chen --**coauthor_of**--> Hongzhi Chen",
+            "source": "02a967e3-1a75-4a5e-a342-517ded8537c3",
+            "target": "009ef356-8b50-40d2-b529-b36ee012e59f",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 6,
+            "weight": 0.0,
+            "display_info": "Kaili Ma --**writes**--> HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "source": "7bec4c94-d932-4497-ba1a-2e816466ac3c",
+            "target": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Kaili Ma --**is_affiliated_with**--> KASMA.ai",
+            "source": "7bec4c94-d932-4497-ba1a-2e816466ac3c",
+            "target": "KASMA.ai",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "Kaili Ma --**coauthor_of**--> Hongzhi Chen",
+            "source": "7bec4c94-d932-4497-ba1a-2e816466ac3c",
+            "target": "009ef356-8b50-40d2-b529-b36ee012e59f",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 7,
+            "weight": 0.0,
+            "display_info": "Hongzhi Chen --**writes**--> HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "source": "009ef356-8b50-40d2-b529-b36ee012e59f",
+            "target": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Hongzhi Chen --**is_affiliated_with**--> KASMA.ai",
+            "source": "009ef356-8b50-40d2-b529-b36ee012e59f",
+            "target": "KASMA.ai",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 8,
+            "weight": 0.0,
+            "display_info": "James Cheng --**writes**--> HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "source": "894bc777-89d4-403f-aced-04c3431bc040",
+            "target": "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "James Cheng --**is_affiliated_with**--> The Chinese University of Hong Kong",
+            "source": "894bc777-89d4-403f-aced-04c3431bc040",
+            "target": "The Chinese University of Hong Kong",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "James Cheng --**coauthor_of**--> Yongqiang Chen",
+            "source": "894bc777-89d4-403f-aced-04c3431bc040",
+            "target": "02a967e3-1a75-4a5e-a342-517ded8537c3",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "James Cheng --**coauthor_of**--> Kaili Ma",
+            "source": "894bc777-89d4-403f-aced-04c3431bc040",
+            "target": "7bec4c94-d932-4497-ba1a-2e816466ac3c",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge"
+            ],
+            "display_info": "James Cheng --**coauthor_of**--> Hongzhi Chen",
+            "source": "894bc777-89d4-403f-aced-04c3431bc040",
+            "target": "009ef356-8b50-40d2-b529-b36ee012e59f",
+            "key": 0
+        },
+        {
+            "relation": "is_associated_with",
+            "edge_type": "PaperAffiliation",
+            "display_info": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery --**is_associated_with**--> University College London",
+            "source": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "target": "University College London",
+            "key": 0
+        },
+        {
+            "relation": "is_associated_with",
+            "edge_type": "PaperAffiliation",
+            "display_info": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery --**is_associated_with**--> IBM Research",
+            "source": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "target": "IBM Research",
+            "key": 0
+        },
+        {
+            "relation": "is_associated_with",
+            "edge_type": "PaperAffiliation",
+            "display_info": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery --**is_associated_with**--> IBM Research Europe",
+            "source": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "target": "IBM Research Europe",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery --**researchs**--> KnowledgeHub",
+            "source": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "target": "d7078900-9e14-46ce-aea2-ace1f75f6e28",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery --**researchs**--> Named Entity Recognition",
+            "source": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "target": "c1921fd6-1e99-4519-b00a-3558f04d16ae",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery --**researchs**--> Relation Classification",
+            "source": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "target": "e4abc00d-2046-474b-87b7-874f3bcd7efc",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery --**researchs**--> Knowledge Graph",
+            "source": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "target": "e5cec844-16d0-4b73-88dd-b85efbee2197",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery --**researchs**--> Large Language Models",
+            "source": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "target": "9dcf6e7c-599e-4b1a-8c56-971db9eade69",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery --**researchs**--> Annotation Tool",
+            "source": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "target": "6b1f470a-ee3b-4dba-8d5c-ab74cf67303a",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 1,
+            "weight": 0.0,
+            "display_info": "Shinnosuke Tanaka --**writes**--> KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "source": "f35a541a-9a9d-4cc4-8fba-d219f1cee3ee",
+            "target": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Shinnosuke Tanaka --**is_affiliated_with**--> IBM Research Europe",
+            "source": "f35a541a-9a9d-4cc4-8fba-d219f1cee3ee",
+            "target": "IBM Research Europe",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Shinnosuke Tanaka --**coauthor_of**--> James Barry",
+            "source": "f35a541a-9a9d-4cc4-8fba-d219f1cee3ee",
+            "target": "9c6fd45e-43f3-490d-b5f4-6f0723488aa4",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Shinnosuke Tanaka --**coauthor_of**--> Vishnudev Kuruvanthodi",
+            "source": "f35a541a-9a9d-4cc4-8fba-d219f1cee3ee",
+            "target": "850eee64-1e57-4135-b660-0bb5c0f85408",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Shinnosuke Tanaka --**coauthor_of**--> Movina Moses",
+            "source": "f35a541a-9a9d-4cc4-8fba-d219f1cee3ee",
+            "target": "e3c5fbf9-b5fe-411d-b925-7186457965c6",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Shinnosuke Tanaka --**coauthor_of**--> Maxwell J. Giammona",
+            "source": "f35a541a-9a9d-4cc4-8fba-d219f1cee3ee",
+            "target": "cf9ff717-e687-435b-b455-84610d136ee7",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Shinnosuke Tanaka --**coauthor_of**--> Nathan Herr",
+            "source": "f35a541a-9a9d-4cc4-8fba-d219f1cee3ee",
+            "target": "598b1443-d673-4016-ab32-8079a3f68d7e",
+            "key": 0
+        },
+        {
+            "relation": "collaborates_with",
+            "edge_type": "AffiliationCollaboration",
+            "weight": 0.0,
+            "collaboration_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "IBM Research Europe --**collaborates_with**--> University College London",
+            "source": "IBM Research Europe",
+            "target": "University College London",
+            "key": 0
+        },
+        {
+            "relation": "collaborates_with",
+            "edge_type": "AffiliationCollaboration",
+            "weight": 0.0,
+            "collaboration_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "IBM Research Europe --**collaborates_with**--> IBM Research",
+            "source": "IBM Research Europe",
+            "target": "IBM Research",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 2,
+            "weight": 0.0,
+            "display_info": "James Barry --**writes**--> KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "source": "9c6fd45e-43f3-490d-b5f4-6f0723488aa4",
+            "target": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "James Barry --**is_affiliated_with**--> IBM Research Europe",
+            "source": "9c6fd45e-43f3-490d-b5f4-6f0723488aa4",
+            "target": "IBM Research Europe",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "James Barry --**coauthor_of**--> Vishnudev Kuruvanthodi",
+            "source": "9c6fd45e-43f3-490d-b5f4-6f0723488aa4",
+            "target": "850eee64-1e57-4135-b660-0bb5c0f85408",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 3,
+            "weight": 0.0,
+            "display_info": "Vishnudev Kuruvanthodi --**writes**--> KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "source": "850eee64-1e57-4135-b660-0bb5c0f85408",
+            "target": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Vishnudev Kuruvanthodi --**is_affiliated_with**--> IBM Research Europe",
+            "source": "850eee64-1e57-4135-b660-0bb5c0f85408",
+            "target": "IBM Research Europe",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 4,
+            "weight": 0.0,
+            "display_info": "Movina Moses --**writes**--> KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "source": "e3c5fbf9-b5fe-411d-b925-7186457965c6",
+            "target": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Movina Moses --**is_affiliated_with**--> IBM Research",
+            "source": "e3c5fbf9-b5fe-411d-b925-7186457965c6",
+            "target": "IBM Research",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Movina Moses --**coauthor_of**--> James Barry",
+            "source": "e3c5fbf9-b5fe-411d-b925-7186457965c6",
+            "target": "9c6fd45e-43f3-490d-b5f4-6f0723488aa4",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Movina Moses --**coauthor_of**--> Vishnudev Kuruvanthodi",
+            "source": "e3c5fbf9-b5fe-411d-b925-7186457965c6",
+            "target": "850eee64-1e57-4135-b660-0bb5c0f85408",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Movina Moses --**coauthor_of**--> Nathan Herr",
+            "source": "e3c5fbf9-b5fe-411d-b925-7186457965c6",
+            "target": "598b1443-d673-4016-ab32-8079a3f68d7e",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 5,
+            "weight": 0.0,
+            "display_info": "Maxwell J. Giammona --**writes**--> KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "source": "cf9ff717-e687-435b-b455-84610d136ee7",
+            "target": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Maxwell J. Giammona --**is_affiliated_with**--> IBM Research",
+            "source": "cf9ff717-e687-435b-b455-84610d136ee7",
+            "target": "IBM Research",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Maxwell J. Giammona --**coauthor_of**--> James Barry",
+            "source": "cf9ff717-e687-435b-b455-84610d136ee7",
+            "target": "9c6fd45e-43f3-490d-b5f4-6f0723488aa4",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Maxwell J. Giammona --**coauthor_of**--> Vishnudev Kuruvanthodi",
+            "source": "cf9ff717-e687-435b-b455-84610d136ee7",
+            "target": "850eee64-1e57-4135-b660-0bb5c0f85408",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Maxwell J. Giammona --**coauthor_of**--> Movina Moses",
+            "source": "cf9ff717-e687-435b-b455-84610d136ee7",
+            "target": "e3c5fbf9-b5fe-411d-b925-7186457965c6",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Maxwell J. Giammona --**coauthor_of**--> Nathan Herr",
+            "source": "cf9ff717-e687-435b-b455-84610d136ee7",
+            "target": "598b1443-d673-4016-ab32-8079a3f68d7e",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 6,
+            "weight": 0.0,
+            "display_info": "Nathan Herr --**writes**--> KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "source": "598b1443-d673-4016-ab32-8079a3f68d7e",
+            "target": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Nathan Herr --**is_affiliated_with**--> University College London",
+            "source": "598b1443-d673-4016-ab32-8079a3f68d7e",
+            "target": "University College London",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Nathan Herr --**coauthor_of**--> James Barry",
+            "source": "598b1443-d673-4016-ab32-8079a3f68d7e",
+            "target": "9c6fd45e-43f3-490d-b5f4-6f0723488aa4",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Nathan Herr --**coauthor_of**--> Vishnudev Kuruvanthodi",
+            "source": "598b1443-d673-4016-ab32-8079a3f68d7e",
+            "target": "850eee64-1e57-4135-b660-0bb5c0f85408",
+            "key": 0
+        },
+        {
+            "relation": "collaborates_with",
+            "edge_type": "AffiliationCollaboration",
+            "weight": 0.0,
+            "collaboration_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "University College London --**collaborates_with**--> IBM Research",
+            "source": "University College London",
+            "target": "IBM Research",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 7,
+            "weight": 0.0,
+            "display_info": "Mohab Elkaref --**writes**--> KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "source": "3a261997-89b6-4758-b20c-656bab2beda5",
+            "target": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Mohab Elkaref --**is_affiliated_with**--> IBM Research Europe",
+            "source": "3a261997-89b6-4758-b20c-656bab2beda5",
+            "target": "IBM Research Europe",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Mohab Elkaref --**coauthor_of**--> Shinnosuke Tanaka",
+            "source": "3a261997-89b6-4758-b20c-656bab2beda5",
+            "target": "f35a541a-9a9d-4cc4-8fba-d219f1cee3ee",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Mohab Elkaref --**coauthor_of**--> James Barry",
+            "source": "3a261997-89b6-4758-b20c-656bab2beda5",
+            "target": "9c6fd45e-43f3-490d-b5f4-6f0723488aa4",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Mohab Elkaref --**coauthor_of**--> Vishnudev Kuruvanthodi",
+            "source": "3a261997-89b6-4758-b20c-656bab2beda5",
+            "target": "850eee64-1e57-4135-b660-0bb5c0f85408",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Mohab Elkaref --**coauthor_of**--> Movina Moses",
+            "source": "3a261997-89b6-4758-b20c-656bab2beda5",
+            "target": "e3c5fbf9-b5fe-411d-b925-7186457965c6",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Mohab Elkaref --**coauthor_of**--> Maxwell J. Giammona",
+            "source": "3a261997-89b6-4758-b20c-656bab2beda5",
+            "target": "cf9ff717-e687-435b-b455-84610d136ee7",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Mohab Elkaref --**coauthor_of**--> Nathan Herr",
+            "source": "3a261997-89b6-4758-b20c-656bab2beda5",
+            "target": "598b1443-d673-4016-ab32-8079a3f68d7e",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 8,
+            "weight": 0.0,
+            "display_info": "Geeth De Mel --**writes**--> KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "source": "46df4552-e5d6-4a12-a947-8974790f34ad",
+            "target": "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Geeth De Mel --**is_affiliated_with**--> IBM Research Europe",
+            "source": "46df4552-e5d6-4a12-a947-8974790f34ad",
+            "target": "IBM Research Europe",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Geeth De Mel --**coauthor_of**--> Shinnosuke Tanaka",
+            "source": "46df4552-e5d6-4a12-a947-8974790f34ad",
+            "target": "f35a541a-9a9d-4cc4-8fba-d219f1cee3ee",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Geeth De Mel --**coauthor_of**--> James Barry",
+            "source": "46df4552-e5d6-4a12-a947-8974790f34ad",
+            "target": "9c6fd45e-43f3-490d-b5f4-6f0723488aa4",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Geeth De Mel --**coauthor_of**--> Vishnudev Kuruvanthodi",
+            "source": "46df4552-e5d6-4a12-a947-8974790f34ad",
+            "target": "850eee64-1e57-4135-b660-0bb5c0f85408",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Geeth De Mel --**coauthor_of**--> Movina Moses",
+            "source": "46df4552-e5d6-4a12-a947-8974790f34ad",
+            "target": "e3c5fbf9-b5fe-411d-b925-7186457965c6",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Geeth De Mel --**coauthor_of**--> Maxwell J. Giammona",
+            "source": "46df4552-e5d6-4a12-a947-8974790f34ad",
+            "target": "cf9ff717-e687-435b-b455-84610d136ee7",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Geeth De Mel --**coauthor_of**--> Nathan Herr",
+            "source": "46df4552-e5d6-4a12-a947-8974790f34ad",
+            "target": "598b1443-d673-4016-ab32-8079a3f68d7e",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "KnowledgeHub: An End-to-End Tool for Assisted Scientific Discovery"
+            ],
+            "display_info": "Geeth De Mel --**coauthor_of**--> Mohab Elkaref",
+            "source": "46df4552-e5d6-4a12-a947-8974790f34ad",
+            "target": "3a261997-89b6-4758-b20c-656bab2beda5",
+            "key": 0
+        },
+        {
+            "relation": "is_associated_with",
+            "edge_type": "PaperAffiliation",
+            "display_info": "Nougat: Neural Optical Understanding for Academic Documents --**is_associated_with**--> Meta AI",
+            "source": "Nougat: Neural Optical Understanding for Academic Documents",
+            "target": "Meta AI",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "Nougat: Neural Optical Understanding for Academic Documents --**researchs**--> Nougat",
+            "source": "Nougat: Neural Optical Understanding for Academic Documents",
+            "target": "2ae35375-3720-4e11-8e08-14ac49065261",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "Nougat: Neural Optical Understanding for Academic Documents --**researchs**--> Scientific PDFs",
+            "source": "Nougat: Neural Optical Understanding for Academic Documents",
+            "target": "10e08058-c487-4e57-b0de-0c3b6525d74b",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "Nougat: Neural Optical Understanding for Academic Documents --**researchs**--> Mathematical expressions",
+            "source": "Nougat: Neural Optical Understanding for Academic Documents",
+            "target": "371468b2-622a-46da-81b2-e495fef3d603",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "Nougat: Neural Optical Understanding for Academic Documents --**researchs**--> Markup language",
+            "source": "Nougat: Neural Optical Understanding for Academic Documents",
+            "target": "db78a55f-a330-4496-b476-408da27cf8d6",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "Nougat: Neural Optical Understanding for Academic Documents --**researchs**--> Visual Transformer model",
+            "source": "Nougat: Neural Optical Understanding for Academic Documents",
+            "target": "fe659d99-0578-4840-a3bc-84d26e186910",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "Nougat: Neural Optical Understanding for Academic Documents --**researchs**--> New dataset of scientific documents",
+            "source": "Nougat: Neural Optical Understanding for Academic Documents",
+            "target": "be439ff2-41b3-4478-856e-2dccfa0ded60",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 1,
+            "weight": 0.0,
+            "display_info": "Lukas Blecher --**writes**--> Nougat: Neural Optical Understanding for Academic Documents",
+            "source": "fed8ac1e-1432-4118-8f91-1b9d1ed44999",
+            "target": "Nougat: Neural Optical Understanding for Academic Documents",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Lukas Blecher --**is_affiliated_with**--> Meta AI",
+            "source": "fed8ac1e-1432-4118-8f91-1b9d1ed44999",
+            "target": "Meta AI",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Nougat: Neural Optical Understanding for Academic Documents"
+            ],
+            "display_info": "Lukas Blecher --**coauthor_of**--> Guillem Cucurull",
+            "source": "fed8ac1e-1432-4118-8f91-1b9d1ed44999",
+            "target": "e7e288b8-ae0a-48b4-bef0-6f7c3714f6fb",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 2,
+            "weight": 0.0,
+            "display_info": "Guillem Cucurull --**writes**--> Nougat: Neural Optical Understanding for Academic Documents",
+            "source": "e7e288b8-ae0a-48b4-bef0-6f7c3714f6fb",
+            "target": "Nougat: Neural Optical Understanding for Academic Documents",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Guillem Cucurull --**is_affiliated_with**--> Meta AI",
+            "source": "e7e288b8-ae0a-48b4-bef0-6f7c3714f6fb",
+            "target": "Meta AI",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 3,
+            "weight": 0.0,
+            "display_info": "Thomas Scialom --**writes**--> Nougat: Neural Optical Understanding for Academic Documents",
+            "source": "94cfd84b-f4d4-4796-bdb8-83849041c15b",
+            "target": "Nougat: Neural Optical Understanding for Academic Documents",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Thomas Scialom --**is_affiliated_with**--> Meta AI",
+            "source": "94cfd84b-f4d4-4796-bdb8-83849041c15b",
+            "target": "Meta AI",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Nougat: Neural Optical Understanding for Academic Documents"
+            ],
+            "display_info": "Thomas Scialom --**coauthor_of**--> Lukas Blecher",
+            "source": "94cfd84b-f4d4-4796-bdb8-83849041c15b",
+            "target": "fed8ac1e-1432-4118-8f91-1b9d1ed44999",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Nougat: Neural Optical Understanding for Academic Documents"
+            ],
+            "display_info": "Thomas Scialom --**coauthor_of**--> Guillem Cucurull",
+            "source": "94cfd84b-f4d4-4796-bdb8-83849041c15b",
+            "target": "e7e288b8-ae0a-48b4-bef0-6f7c3714f6fb",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 4,
+            "weight": 0.0,
+            "display_info": "Robert Stojnic --**writes**--> Nougat: Neural Optical Understanding for Academic Documents",
+            "source": "a427516a-0cc9-4819-a178-d8e509036d69",
+            "target": "Nougat: Neural Optical Understanding for Academic Documents",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Robert Stojnic --**is_affiliated_with**--> Meta AI",
+            "source": "a427516a-0cc9-4819-a178-d8e509036d69",
+            "target": "Meta AI",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Nougat: Neural Optical Understanding for Academic Documents"
+            ],
+            "display_info": "Robert Stojnic --**coauthor_of**--> Lukas Blecher",
+            "source": "a427516a-0cc9-4819-a178-d8e509036d69",
+            "target": "fed8ac1e-1432-4118-8f91-1b9d1ed44999",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Nougat: Neural Optical Understanding for Academic Documents"
+            ],
+            "display_info": "Robert Stojnic --**coauthor_of**--> Guillem Cucurull",
+            "source": "a427516a-0cc9-4819-a178-d8e509036d69",
+            "target": "e7e288b8-ae0a-48b4-bef0-6f7c3714f6fb",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Nougat: Neural Optical Understanding for Academic Documents"
+            ],
+            "display_info": "Robert Stojnic --**coauthor_of**--> Thomas Scialom",
+            "source": "a427516a-0cc9-4819-a178-d8e509036d69",
+            "target": "94cfd84b-f4d4-4796-bdb8-83849041c15b",
+            "key": 0
+        },
+        {
+            "relation": "is_associated_with",
+            "edge_type": "PaperAffiliation",
+            "display_info": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory --**is_associated_with**--> Zep AI",
+            "source": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "target": "Zep AI",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory --**researchs**--> Zep",
+            "source": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "target": "98281ff1-956f-4e5f-b144-8aa49b47f22e",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory --**researchs**--> Graphiti",
+            "source": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "target": "8255b819-2138-4797-b8c9-394d0b834b2b",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory --**researchs**--> MemGPT",
+            "source": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "target": "a1705c1f-073b-4855-b3ae-efe97556dc41",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory --**researchs**--> Deep Memory Retrieval (DMR) benchmark",
+            "source": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "target": "abcf792f-7d7c-4bdf-a0fc-3d380f24e0c6",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory --**researchs**--> LongMemEval benchmark",
+            "source": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "target": "3e7ce63a-4d09-4a3d-931f-98bb32f7da01",
+            "key": 0
+        },
+        {
+            "relation": "researchs",
+            "edge_type": "PaperEntity",
+            "weight": 1.0,
+            "display_info": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory --**researchs**--> Retrieval-Augmented Generation (RAG) frameworks",
+            "source": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "target": "f4aef6ea-d5f9-4ec0-955a-523061f12fc4",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 1,
+            "weight": 0.0,
+            "display_info": "Preston Rasmussen --**writes**--> Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "source": "51a9c3d2-b92a-4f84-a21e-221cc460656f",
+            "target": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Preston Rasmussen --**is_affiliated_with**--> Zep AI",
+            "source": "51a9c3d2-b92a-4f84-a21e-221cc460656f",
+            "target": "Zep AI",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Zep: A Temporal Knowledge Graph Architecture for Agent Memory"
+            ],
+            "display_info": "Preston Rasmussen --**coauthor_of**--> Pavlo Paliychuk",
+            "source": "51a9c3d2-b92a-4f84-a21e-221cc460656f",
+            "target": "9b6d4c0a-fecc-48e9-8370-7b9753c6da0b",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Zep: A Temporal Knowledge Graph Architecture for Agent Memory"
+            ],
+            "display_info": "Preston Rasmussen --**coauthor_of**--> Travis Beauvais",
+            "source": "51a9c3d2-b92a-4f84-a21e-221cc460656f",
+            "target": "0788cef0-7e28-4e27-9852-7b6ae0a8abf4",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Zep: A Temporal Knowledge Graph Architecture for Agent Memory"
+            ],
+            "display_info": "Preston Rasmussen --**coauthor_of**--> Daniel Chalef",
+            "source": "51a9c3d2-b92a-4f84-a21e-221cc460656f",
+            "target": "e515aac0-cb1f-47d2-ad98-19ab9467ec3e",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 2,
+            "weight": 0.0,
+            "display_info": "Pavlo Paliychuk --**writes**--> Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "source": "9b6d4c0a-fecc-48e9-8370-7b9753c6da0b",
+            "target": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Pavlo Paliychuk --**is_affiliated_with**--> Zep AI",
+            "source": "9b6d4c0a-fecc-48e9-8370-7b9753c6da0b",
+            "target": "Zep AI",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 3,
+            "weight": 0.0,
+            "display_info": "Travis Beauvais --**writes**--> Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "source": "0788cef0-7e28-4e27-9852-7b6ae0a8abf4",
+            "target": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Travis Beauvais --**is_affiliated_with**--> Zep AI",
+            "source": "0788cef0-7e28-4e27-9852-7b6ae0a8abf4",
+            "target": "Zep AI",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Zep: A Temporal Knowledge Graph Architecture for Agent Memory"
+            ],
+            "display_info": "Travis Beauvais --**coauthor_of**--> Pavlo Paliychuk",
+            "source": "0788cef0-7e28-4e27-9852-7b6ae0a8abf4",
+            "target": "9b6d4c0a-fecc-48e9-8370-7b9753c6da0b",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Zep: A Temporal Knowledge Graph Architecture for Agent Memory"
+            ],
+            "display_info": "Travis Beauvais --**coauthor_of**--> Daniel Chalef",
+            "source": "0788cef0-7e28-4e27-9852-7b6ae0a8abf4",
+            "target": "e515aac0-cb1f-47d2-ad98-19ab9467ec3e",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 4,
+            "weight": 0.0,
+            "display_info": "Jack Ryan --**writes**--> Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "source": "1a2fe384-d088-4982-bdd1-e5fe9935862b",
+            "target": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Jack Ryan --**is_affiliated_with**--> Zep AI",
+            "source": "1a2fe384-d088-4982-bdd1-e5fe9935862b",
+            "target": "Zep AI",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Zep: A Temporal Knowledge Graph Architecture for Agent Memory"
+            ],
+            "display_info": "Jack Ryan --**coauthor_of**--> Preston Rasmussen",
+            "source": "1a2fe384-d088-4982-bdd1-e5fe9935862b",
+            "target": "51a9c3d2-b92a-4f84-a21e-221cc460656f",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Zep: A Temporal Knowledge Graph Architecture for Agent Memory"
+            ],
+            "display_info": "Jack Ryan --**coauthor_of**--> Pavlo Paliychuk",
+            "source": "1a2fe384-d088-4982-bdd1-e5fe9935862b",
+            "target": "9b6d4c0a-fecc-48e9-8370-7b9753c6da0b",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Zep: A Temporal Knowledge Graph Architecture for Agent Memory"
+            ],
+            "display_info": "Jack Ryan --**coauthor_of**--> Travis Beauvais",
+            "source": "1a2fe384-d088-4982-bdd1-e5fe9935862b",
+            "target": "0788cef0-7e28-4e27-9852-7b6ae0a8abf4",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Zep: A Temporal Knowledge Graph Architecture for Agent Memory"
+            ],
+            "display_info": "Jack Ryan --**coauthor_of**--> Daniel Chalef",
+            "source": "1a2fe384-d088-4982-bdd1-e5fe9935862b",
+            "target": "e515aac0-cb1f-47d2-ad98-19ab9467ec3e",
+            "key": 0
+        },
+        {
+            "relation": "writes",
+            "edge_type": "AuthorPaper",
+            "author_order": 5,
+            "weight": 0.0,
+            "display_info": "Daniel Chalef --**writes**--> Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "source": "e515aac0-cb1f-47d2-ad98-19ab9467ec3e",
+            "target": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "key": 0
+        },
+        {
+            "relation": "is_affiliated_with",
+            "edge_type": "AuthorAffiliation",
+            "rank": 0,
+            "display_info": "Daniel Chalef --**is_affiliated_with**--> Zep AI",
+            "source": "e515aac0-cb1f-47d2-ad98-19ab9467ec3e",
+            "target": "Zep AI",
+            "key": 0
+        },
+        {
+            "relation": "coauthor_of",
+            "edge_type": "Coauthor",
+            "weight": 0.0,
+            "coauthored_papers": [
+                "Zep: A Temporal Knowledge Graph Architecture for Agent Memory"
+            ],
+            "display_info": "Daniel Chalef --**coauthor_of**--> Pavlo Paliychuk",
+            "source": "e515aac0-cb1f-47d2-ad98-19ab9467ec3e",
+            "target": "9b6d4c0a-fecc-48e9-8370-7b9753c6da0b",
+            "key": 0
+        }
+    ]
+}

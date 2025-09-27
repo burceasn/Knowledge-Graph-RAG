@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 with open("./prompts/entity_and_relationship_extraction_prompt.txt", "r", encoding="utf-8") as f:
     ENTITY_EXTRACTION_PROMPT = f.read()
 
-DEFAULT_ENTITY_TYPES = ["CONCEPT", "METHOD", "DATASET", "METRIC", "APPLICATION", "TOOL", "PROBLEM", "RESULT", "FRAMEWORK"]
+DEFAULT_ENTITY_TYPES = ["CONCEPT", "METHOD", "DATASET", "METRIC", "ALGORITHM", "TOOL", "PROBLEM", "FRAMEWORK", "BENCHMARK", "CODE REPO"]
 
 @dataclass
 class ExtractedEntity:
@@ -56,7 +56,6 @@ class PaperEntityExtractor:
         self.llm_provider = llm_provider
         self.model = model
         self.entity_types = entity_types or DEFAULT_ENTITY_TYPES
-        # self.tuple_delimiter = tuple_delimiter
         self.record_delimiter = record_delimiter
         self.max_tokens = max_tokens
         self.temperature = temperature
@@ -67,10 +66,10 @@ class PaperEntityExtractor:
             self.model = "gpt-4o-mini"
         elif llm_provider == "deepseek":
             # deepseek 通过 base_url 指定
-            self.client = OpenAI(api_key=api_key, base_url=api_base_url or "https://api.deepseek.com/beta")
+            self.client = OpenAI(api_key=api_key, base_url=api_base_url)
             self.model = "deepseek-chat"
         elif llm_provider == "ollama":
-            self.client = OpenAI(api_key="ollama", base_url=api_base_url or "http://localhost:11434/v1")
+            self.client = OpenAI(api_key="ollama", base_url=api_base_url)
         else:
             raise ValueError(f"Unsupported LLM provider: {llm_provider}")
 
