@@ -186,8 +186,7 @@ class PaperProcessor:
                 logger.info(f"成功提取 {len(relations)} 个关系")
                 # 添加实体间关系到知识图谱
                 for relation in relations:
-                    # 这里可以根据需要添加实体间关系到图中
-                    pass
+                    self.kg_builder.add_entity_to_entity_relation(relation)
             
             return True
             

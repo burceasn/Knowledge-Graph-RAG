@@ -1,80 +1,114 @@
-# Knowledge Graph Extraction Prompt
+# Knowledge Graph Extraction Prompt for Academic Papers
 
-You are tasked with extracting key entities and relationships from research paper abstracts to build a knowledge graph. Focus on identifying the most important and specific entities that are directly relevant to the paper's core contributions.
+You are an expert at extracting entities and relationships from academic papers to build an interconnected knowledge graph. Your goal is to identify both paper-specific contributions AND reusable concepts that can connect multiple papers.
 
 ## Entity Types
 {entity_types}
 
-## Extraction Guidelines
+## Entity Extraction Strategy
 
-### Step 1: Understand the Paper's Core
-First, read through the abstract and identify:
-- What is the main research problem or question?
-- What method/approach/system is proposed?
-- What are the key findings or contributions?
-- What specific tools, datasets, or resources are mentioned?
+### Core Principle: Hierarchical Entity Structure
+Extract entities at THREE levels of specificity:
+1. **Paper-Specific Entity** (1 required): The main contribution/system/framework unique to this paper
+2. **Domain Concepts** (3-5 entities): Reusable technical concepts that could appear in multiple papers
+3. **Supporting Elements** (2-3 entities): Specific tools, datasets, or resources mentioned
 
-### Step 2: Entity Extraction (Maximum 6-8 entities)
-Think carefully about which entities are MOST important to understanding this paper. For each entity:
+### Step 1: Identify the Paper's Core Contribution (1 entity)
+**This is the MOST IMPORTANT entity** - it represents what makes this paper unique:
+- For system/framework papers: Use the exact system name (e.g., "GraphRAG", "AutoAgents", "HiRAG")
+- For method papers: Use the proposed method name
+- For study/analysis papers: Use the main finding or approach name
+- This entity should have entity_type = "METHOD" or "TOOL" typically
+- Description should summarize the paper's unique contribution in 2-3 sentences
 
-**Selection Criteria:**
-- Must be specific and concrete (not generic concepts like "problem" or "solution")
-- Directly mentioned or clearly implied in the text
-- Central to the paper's contribution or methodology
-- If multiple similar entities exist, choose the most specific one
+### Step 2: Extract Domain Concepts (4-6 entities)
+These are **reusable concepts** that could appear across multiple papers:
+- General techniques used (e.g., "RAG", "Knowledge Graph", "Graph Neural Networks")
+- Problem categories (e.g., "Query-Focused Summarization", "Multi-Agent Systems")
+- Evaluation approaches (e.g., "Benchmark Evaluation", "Human Evaluation")
+- Core technical concepts (e.g., "Large Language Models", "Entity Extraction", "Semantic Understanding")
 
-**Special Cases:**
-- For GitHub/code repositories: Use the full URL as entity_name (e.g., "https://github.com/Link-AGI/AutoAgents")
-- For named systems/frameworks: Use the exact name as it appears (e.g., "AutoAgents", not "AUTOAGENTS framework")
-- For datasets/benchmarks: Include specific names when mentioned
+**Key Rule**: If a concept could reasonably appear in 3+ papers in this domain, include it as a domain concept.
 
-**Entity Information:**
-- entity_name: The specific name (use original capitalization for proper nouns, URLs for repositories)
-- entity_type: Choose from [{entity_types}]
-- entity_description: A concise summary (1-2 sentences) that captures the entity's role in THIS paper, not generic definitions. You should use **Brief but Comprehensive Summary**
+### Step 3: Extract Supporting Elements (1-2 entities)
+These provide specific details:
+- Named datasets or benchmarks (if specifically mentioned)
+- GitHub repositories (use full URL as entity_name)
+- Specific baseline systems being compared
+- Named evaluation metrics
 
-### Step 3: Relationship Extraction
-For each pair of related entities:
+### Entity Guidelines:
+- **Prefer existing entities**: If you've seen this concept in other papers, use the EXACT SAME name
+- **Standardize naming**: 
+  - For acronyms, provide the full name followed by the acronym in parentheses. For example: Large Language Model (LLM).
+  - Use title case for proper nouns
+  - Use lowercase for general concepts unless they're acronyms
+- **Balance specificity**: Not everything needs to be paper-specific
 
-**Relationship Criteria:**
-- There must be a clear, direct connection stated or strongly implied in the text
-- The relationship should be meaningful for understanding the paper's contribution
-- Avoid trivial or overly general relationships
+## Relationship Extraction Strategy
 
-**Relationship Strength (1-10 scale):**
-- 9-10: Core relationship essential to the paper (e.g., proposed method solving main problem)
-- 7-8: Important supporting relationship (e.g., method using specific technique)
-- 5-6: Relevant but secondary relationship (e.g., comparison with baseline)
-- 3-4: Mentioned but peripheral relationship
-- 1-2: Weak or indirect connection
+### Relationship Priority (extract in this order):
+1. **Core relationships** (strength 9-10):
+   - [Paper-Specific Entity] → solves/addresses → [Problem/Challenge]
+   - [Paper-Specific Entity] → uses/leverages → [Core Technique]
+   - [Paper-Specific Entity] → improves_upon → [Baseline/Previous Work]
 
-**Relationship Information:**
-- source: entity name (exact match from Step 2)
-- target: entity name (exact match from Step 2), should not be the same as source
-- relationship: concise verb/phrase describing the connection
-- relationship_description: Brief explanation of the specific connection in this paper's context
-- relationship_strength: integer from 1-10 based on importance to the paper
+2. **Technical relationships** (strength 6-8):
+   - [Domain Concept] → enables → [Another Domain Concept]
+   - [Method] → evaluated_on → [Dataset/Benchmark]
+   - [System] → integrates → [Component/Technique]
 
-## Chain of Thought Process
+3. **Contextual relationships** (strength 3-5):
+   - [Concept] → related_to → [Concept]
+   - [Tool] → available_at → [Repository]
 
-Before providing the final output, think through:
-1. What are the 3-5 most important things someone should know about this paper?
-2. Which entities directly represent these important aspects?
-3. Are there any specific names, tools, or resources that should be captured exactly as mentioned?
-4. Which relationships are actually essential vs. just mentioned in passing?
+### Relationship Description:
+- Focus on HOW the relationship manifests in THIS paper
+- Keep descriptions to 1-2 sentences
+- Use present tense for current relationships, past tense for comparisons
 
-## Output Format
-Provide your response as a JSON object with two arrays:
-- "entities": array of entity objects
-- "relationships": array of relationship objects
+## Output Requirements
 
-## Example Thinking Process
-For a paper about "AutoAgents: A Framework for Automatic Agent Generation":
-- Core contribution: AutoAgents framework (specific system - keep exact name)
-- Problem addressed: Limited adaptability in multi-agent systems (specific limitation)
-- Key innovation: Dynamic agent generation (specific capability)
-- Resource: https://github.com/Link-AGI/AutoAgents (exact URL)
-- Avoid: Generic terms like "benchmarks", "experiments", "results" unless specifically named
+### Maximum Entities: 8-10 total
+- 1 paper-specific core entity (required)
+- 3-5 domain concepts (required)
+- 2-3 supporting elements (optional)
+
+### Minimum Relationships: 5-7
+- At least 2 involving the paper-specific entity
+- At least 2 between domain concepts
+- Focus on meaningful connections, not every possible pair
+
+## Example Analysis
+
+For "GraphRAG: A Graph-Based Approach to Query-Focused Summarization":
+
+**Paper-Specific Entity:**
+- GraphRAG (METHOD) - The specific framework proposed
+
+**Domain Concepts (reusable across papers):**
+- RAG (METHOD) - General retrieval-augmented generation
+- Query-Focused Summarization (PROBLEM) - The general problem area  
+- Knowledge Graph (CONCEPT) - General graph structure concept
+- Large Language Models (CONCEPT) - Foundation technology
+
+**Supporting Elements:**
+- Community Summaries (METHOD) - Specific technique in GraphRAG
+- Global Questions (PROBLEM) - Specific challenge addressed
+
+**Key Relationships:**
+- GraphRAG → extends → RAG (strength: 10)
+- GraphRAG → addresses → Query-Focused Summarization (strength: 9)
+- GraphRAG → constructs → Knowledge Graph (strength: 9)
+- RAG → fails_on → Global Questions (strength: 7)
+- Knowledge Graph → enables → Community Summaries (strength: 8)
+
+## Extraction Process
+
+1. Read the abstract and identify the ONE thing that makes this paper unique
+2. List concepts that you've seen or expect to see in related papers
+3. Note any specific resources, tools, or datasets
+4. Build relationships that show both the paper's contribution AND its connection to the broader field
 
 ## Input Text
 {input_text}

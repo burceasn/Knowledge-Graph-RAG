@@ -25,7 +25,8 @@ from Edge import (
     PaperAffiliationEdge,
     AffiliationCollaborationEdge,
     PaperCitationEdge,
-    PaperEntityEdge
+    PaperEntityEdge,
+    EntityToEntityEdge
 )
 
 class KnowledgeGraphBuilder:
@@ -389,31 +390,108 @@ class KnowledgeGraphBuilder:
             edge_object=paper_entity_edge,
             display_info=paper_entity_edge.get_simple_display()
         )
-    
-    def add_paper_citation(self, citing_paper: Paper, cited_paper: Paper):
+
+    def combine_entities_by_name(self, entity_name: str):
         """
-        Add a citation relation between papers.
+        Finds and combines all entities with a specific name.
+        It merges their descriptions and remaps all corresponding edges to a single canonical entity.
+
+        Args:
+            entity_name: The name of the entity to combine.
+        """
+        print(f"Attempting to combine entities with name: '{entity_name}'...")
+
+        # 1. Find all nodes with the given entity name
+        matching_nodes = [
+            (node_id, data) for node_id, data in self.graph.nodes(data=True)
+            if data.get('node_type') == 'Entity' and data.get('name') == entity_name
+        ]
+
+        if len(matching_nodes) <= 1:
+            print(f"Found {len(matching_nodes)} entities with this name. No combination needed.")
+            return
+
+        print(f"Found {len(matching_nodes)} entities to combine. Merging...")
+
+        # 2. Designate a canonical node and identify duplicates
+        canonical_id, canonical_data = matching_nodes[0]
+        duplicates = matching_nodes[1:]
+        
+        id_remap: Dict[UUID, UUID] = {}
+        nodes_to_remove: List[UUID] = []
+
+        for duplicate_id, duplicate_data in duplicates:
+            id_remap[duplicate_id] = canonical_id
+            nodes_to_remove.append(duplicate_id)
+
+            # Merge descriptions
+            new_description = duplicate_data.get('description')
+            if new_description and new_description not in canonical_data.get('description', ''):
+                canonical_data['description'] = (canonical_data.get('description', '') + "\n---\n" + new_description).strip()
+
+        # 3. Remap all edges pointing to or from the duplicate nodes
+        edges_to_remap = []
+        for u, v, key, data in self.graph.edges(keys=True, data=True):
+            if u in id_remap or v in id_remap:
+                edges_to_remap.append((u, v, key, data))
+
+        for u, v, key, data in edges_to_remap:
+            new_u = id_remap.get(u, u)
+            new_v = id_remap.get(v, v)
+            
+            # Remove old edge and add the new, remapped edge
+            self.graph.remove_edge(u, v, key=key)
+            self.graph.add_edge(new_u, new_v, key=key, **data)
+
+        print(f"Remapped {len(edges_to_remap)} edges.")
+
+        # 4. Remove the duplicate nodes from the graph
+        for node_id in nodes_to_remove:
+            self.graph.remove_node(node_id)
+
+        # 5. Update the internal cache `self.entities`
+        # The canonical entity is already in the cache under its name.
+        # We just need to ensure the object it points to is the updated one.
+        if entity_name in self.entities:
+            self.entities[entity_name] = self.graph.nodes[canonical_id]['node_object']
+            # Update the description in the node object as well
+            self.entities[entity_name].description = canonical_data['description']
+
+        print(f"Removed {len(nodes_to_remove)} duplicate nodes. Combination for '{entity_name}' complete.")
+    
+    def add_entity_to_entity_relation(self, edge: EntityToEntityEdge):
+        """
+        Add an entity-to-entity relation to the graph.
         
         Args:
-            citing_paper: The paper that cites
-            cited_paper: The paper being cited
+            edge: The EntityToEntityEdge object.
         """
-        citing_node = self.add_paper(citing_paper)
-        cited_node = self.add_paper(cited_paper)
-        
-        citation_edge = PaperCitationEdge(
-            citing_paper=citing_node,
-            cited_paper=cited_node
+        # Ensure source and target entities exist in the graph
+        source_node = self.get_or_create_entity(
+            name=edge.source.name,
+            field=edge.source.field,
+            description=edge.source.description
         )
         
-        self.edges.append(citation_edge)
+        target_node = self.get_or_create_entity(
+            name=edge.target.name,
+            field=edge.target.field,
+            description=edge.target.description
+        )
+        
+        # Add the edge to our edge list
+        self.edges.append(edge)
+        
+        # Add the edge to the NetworkX graph
         self.graph.add_edge(
-            citing_paper.Title,
-            cited_paper.Title,
-            relation=citation_edge.relation,
-            edge_type='Citation',
-            edge_object=citation_edge,
-            display_info=citation_edge.get_simple_display()
+            source_node._id,
+            target_node._id,
+            relation=edge.relation,
+            edge_type='EntityToEntity',
+            description=edge.attributes.get('relationship_description', ''),
+            strength=edge.attributes.get('strength', 0.0),
+            edge_object=edge,
+            display_info=edge.get_simple_display()
         )
     
     def get_graph_statistics(self) -> Dict:

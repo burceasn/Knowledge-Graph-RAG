@@ -20,3 +20,5 @@ KG_env/
 
 # 忽略cache文件夹
 cache/
+
+*.ipynb
