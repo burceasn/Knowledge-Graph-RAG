@@ -122,7 +122,7 @@ class PaperProcessor:
         
         Args:
             md_file: Markdown文件路径
-            
+
         Returns:
             是否处理成功
         """
@@ -231,10 +231,30 @@ class PaperProcessor:
         for key, value in kg_stats.items():
             logger.info(f"  {key}: {value}")
         
+        # 6a. 查找并合并相似的实体
+        logger.info("\n开始查找并合并相似实体...")
+        similar_entity_groups = self.kg_builder.find_similar_entity_names(threshold=2)
+        
+        if not similar_entity_groups:
+            logger.info("没有找到相似的实体组。")
+        else:
+            logger.info(f"找到 {len(similar_entity_groups)} 组相似实体，将进行合并：")
+            for group in similar_entity_groups:
+                # 将组排序，选择最短的作为标准名称
+                sorted_group = sorted(list(group), key=len)
+                canonical_name = sorted_group[0]
+                logger.info(f"  - 组: {group} -> 合并到: '{canonical_name}'")
+                
+                for source_name in sorted_group[1:]:
+                    self.kg_builder.combine_entities_by_name(
+                        source_name=source_name,
+                        target_name=canonical_name
+                    )
+            
         # 7. 导出知识图谱
         output_file = "knowledge_graph"
         self.kg_builder.export_to_json(output_file)
-        logger.info(f"知识图谱已导出到 {output_file}.graphml")
+        logger.info(f"知识图谱已导出到 {output_file}.")
     
     def clear_cache_for_paper(self, title: str):
         """

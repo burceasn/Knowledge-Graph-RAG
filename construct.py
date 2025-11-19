@@ -391,73 +391,151 @@ class KnowledgeGraphBuilder:
             display_info=paper_entity_edge.get_simple_display()
         )
 
-    def combine_entities_by_name(self, entity_name: str):
+    def combine_entities_by_name(self, source_name: str, target_name: str):
         """
-        Finds and combines all entities with a specific name.
-        It merges their descriptions and remaps all corresponding edges to a single canonical entity.
+        Combines a source entity into a target entity, merging descriptions and remapping all edges.
+        For example, merging "LLMs" (source) into "LLM" (target).
 
         Args:
-            entity_name: The name of the entity to combine.
+            source_name: The name of the entity to merge and remove.
+            target_name: The name of the entity to merge into and keep.
         """
-        print(f"Attempting to combine entities with name: '{entity_name}'...")
+        print(f"Attempting to combine entity '{source_name}' into '{target_name}'...")
 
-        # 1. Find all nodes with the given entity name
-        matching_nodes = [
-            (node_id, data) for node_id, data in self.graph.nodes(data=True)
-            if data.get('node_type') == 'Entity' and data.get('name') == entity_name
-        ]
-
-        if len(matching_nodes) <= 1:
-            print(f"Found {len(matching_nodes)} entities with this name. No combination needed.")
+        # 1. Validate that both entities exist and are different
+        if source_name not in self.entities or target_name not in self.entities:
+            print(f"Error: One or both entities not found. Source: '{source_name}', Target: '{target_name}'.")
+            return
+        
+        if source_name == target_name:
+            print("Error: Source and target names are the same. No action taken.")
             return
 
-        print(f"Found {len(matching_nodes)} entities to combine. Merging...")
-
-        # 2. Designate a canonical node and identify duplicates
-        canonical_id, canonical_data = matching_nodes[0]
-        duplicates = matching_nodes[1:]
+        source_entity = self.entities[source_name]
+        target_entity = self.entities[target_name]
         
-        id_remap: Dict[UUID, UUID] = {}
-        nodes_to_remove: List[UUID] = []
+        source_id = source_entity._id
+        target_id = target_entity._id
 
-        for duplicate_id, duplicate_data in duplicates:
-            id_remap[duplicate_id] = canonical_id
-            nodes_to_remove.append(duplicate_id)
+        print(f"Found entities. Source ID: {source_id}, Target ID: {target_id}.")
 
-            # Merge descriptions
-            new_description = duplicate_data.get('description')
-            if new_description and new_description not in canonical_data.get('description', ''):
-                canonical_data['description'] = (canonical_data.get('description', '') + "\n---\n" + new_description).strip()
+        # 2. Merge descriptions
+        source_description = self.graph.nodes[source_id].get('description')
+        target_description = self.graph.nodes[target_id].get('description', '')
+        
+        if source_description and source_description not in target_description:
+            updated_description = (target_description + "\n---\n" + source_description).strip()
+            self.graph.nodes[target_id]['description'] = updated_description
+            target_entity.description = updated_description
+            print("Descriptions merged.")
 
-        # 3. Remap all edges pointing to or from the duplicate nodes
-        edges_to_remap = []
-        for u, v, key, data in self.graph.edges(keys=True, data=True):
-            if u in id_remap or v in id_remap:
-                edges_to_remap.append((u, v, key, data))
+        # 3. Remap all edges pointing to or from the source node
+        edges_to_remap = list(self.graph.in_edges(source_id, keys=True, data=True)) + list(self.graph.out_edges(source_id, keys=True, data=True)) # pyright: ignore[reportCallIssue]
 
+        remapped_count = 0
         for u, v, key, data in edges_to_remap:
-            new_u = id_remap.get(u, u)
-            new_v = id_remap.get(v, v)
-            
-            # Remove old edge and add the new, remapped edge
             self.graph.remove_edge(u, v, key=key)
-            self.graph.add_edge(new_u, new_v, key=key, **data)
+            
+            new_u = target_id if u == source_id else u
+            new_v = target_id if v == source_id else v
 
-        print(f"Remapped {len(edges_to_remap)} edges.")
+            # Avoid adding self-loops or duplicate edges
+            if new_u == new_v:
+                continue
+            
+            # Check if a similar edge already exists to avoid duplicates
+            if not self.graph.has_edge(new_u, new_v, key=key):
+                self.graph.add_edge(new_u, new_v, key=key, **data)
+                remapped_count += 1
 
-        # 4. Remove the duplicate nodes from the graph
-        for node_id in nodes_to_remove:
-            self.graph.remove_node(node_id)
+        print(f"Remapped {remapped_count} of {len(edges_to_remap)} original edges.")
 
-        # 5. Update the internal cache `self.entities`
-        # The canonical entity is already in the cache under its name.
-        # We just need to ensure the object it points to is the updated one.
-        if entity_name in self.entities:
-            self.entities[entity_name] = self.graph.nodes[canonical_id]['node_object']
-            # Update the description in the node object as well
-            self.entities[entity_name].description = canonical_data['description']
+        # 4. Remove the source node and update caches
+        self.graph.remove_node(source_id)
+        del self.entities[source_name]
 
-        print(f"Removed {len(nodes_to_remove)} duplicate nodes. Combination for '{entity_name}' complete.")
+        print(f"Removed source node '{source_name}'. Combination complete.")
+
+    def _levenshtein_distance(self, s1: str, s2: str) -> int:
+        """Helper function to calculate Levenshtein distance between two strings."""
+        m, n = len(s1), len(s2)
+        if m < n:
+            s1, s2 = s2, s1
+            m, n = n, m
+        
+        dp = list(range(n + 1))
+        
+        for i in range(1, m + 1):
+            prev_row_val = dp[0]
+            dp[0] = i
+            for j in range(1, n + 1):
+                temp = dp[j]
+                cost = 0 if s1[i - 1] == s2[j - 1] else 1
+                dp[j] = min(dp[j] + 1,         # Deletion
+                            dp[j - 1] + 1,     # Insertion
+                            prev_row_val + cost) # Substitution
+                prev_row_val = temp
+                
+        return dp[n]
+
+    def find_similar_entity_names(self, threshold: int = 2) -> List[Tuple[str, ...]]:
+        """
+        Finds groups of entity names that are similar to each other based on Levenshtein distance.
+
+        Args:
+            threshold: The maximum Levenshtein distance to consider two names similar. 
+                       Defaults to 2.
+
+        Returns:
+            A list of tuples, where each tuple contains a group of similar entity names.
+            For example: [('LLM', 'LLMs'), ('GPT-3', 'GPT3')].
+        """
+        print(f"Finding similar entity names with threshold <= {threshold}...")
+        
+        names = list(self.entities.keys())
+        if len(names) < 2:
+            return []
+
+        processed_names = set()
+        all_groups = []
+
+        for i in range(len(names)):
+            if names[i] in processed_names:
+                continue
+
+            current_group = {names[i]}
+            
+            # Use a queue to find all connected names (names similar to any name in the group)
+            queue = [names[i]]
+            
+            # Mark the first name as processed inside the main loop
+            processed_names.add(names[i])
+
+            head = 0
+            while head < len(queue):
+                name_to_check = queue[head]
+                head += 1
+                
+                # Find other names similar to the one from the queue
+                for j in range(i + 1, len(names)):
+                    other_name = names[j]
+                    if other_name in processed_names:
+                        continue
+                    
+                    # Calculate distance, ignoring case
+                    distance = self._levenshtein_distance(name_to_check.lower(), other_name.lower())
+                    
+                    if distance <= threshold:
+                        current_group.add(other_name)
+                        processed_names.add(other_name)
+                        queue.append(other_name)
+            
+            if len(current_group) > 1:
+                all_groups.append(tuple(sorted(list(current_group))))
+
+        print(f"Found {len(all_groups)} groups of similar names.")
+        return all_groups
+
     
     def add_entity_to_entity_relation(self, edge: EntityToEntityEdge):
         """
