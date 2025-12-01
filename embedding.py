@@ -1,10 +1,10 @@
-# 导入所需的库
-from openai import OpenAI, APIError  # 导入OpenAI客户端和API错误类用于异常处理
+from openai import OpenAI, APIError
 from graph_handle import GraphHandle
 import numpy as np
 import pandas as pd
 import os
-
+from sklearn.metrics.pairwise import cosine_similarity
+from typing import Literal
 class EmbeddingClient:
     """
     一个用于获取实体嵌入向量的客户端。
@@ -74,16 +74,21 @@ class EmbeddingClient:
             df.to_pickle(self.cache_file)
         return df
     
-    def get_embedding(self, input_text: str|list):
+    def get_embedding(self, input_text: str|list, text_type: Literal['query', 'document']='document') -> np.ndarray:
         """
         调用OpenAI API为单个文本或文本列表生成嵌入向量。
 
         :param input_text: 单个字符串或字符串列表。
+        :param text_type: 文本类型，必须是 'query' 或 'document'
         :return: 单个numpy数组或由多个numpy数组垂直堆叠的二维数组。
         :raises APIError: 如果OpenAI API调用失败。
         :raises Exception: 如果发生其他预期之外的错误。
         """
+        if text_type not in ['query', 'document']:
+            raise ValueError("text_type must be either 'query' or 'document'")
         try:
+            if text_type == 'query':
+                input_text = f"This is a query request, you'll given a research paper query, you should try to retrive most relevant documents. This is the query: {input_text}"
             # 调用OpenAI的embeddings API
             response = self.client.embeddings.create(
                 input=input_text,
@@ -104,3 +109,29 @@ class EmbeddingClient:
             print(f"An unexpected error occurred during embedding: {e}")
             # 同样重新抛出异常
             raise
+
+    def top_n_similarity(self, df: pd.DataFrame, query_embedding: np.ndarray, n: int = 5) -> dict:
+        """
+        在 DataFrame 中查找与 query_embedding 余弦相似度最高的 n 行，并返回其 ID。
+        
+        Args:
+            df: 包含 'id' 和 'embedding' 列的 DataFrame。
+            query_embedding: 查询向量 (list 或 numpy array)。
+            n: 返回结果的数量。
+            
+        Returns:
+            dict: {id: similarity_score} 的字典
+        """
+        embedding_matrix = np.vstack(df['embedding'].values) # type: ignore
+    
+        query_vec = query_embedding.reshape(1, -1)
+        similarities = cosine_similarity(embedding_matrix, query_vec).flatten()
+
+        if n > len(df):
+            n = len(df)
+        top_indices = np.argsort(similarities)[-n:][::-1]
+
+        top_ids = df.iloc[top_indices]['id'].tolist()
+        top_scores = similarities[top_indices]
+    
+        return dict(zip(top_ids, top_scores))
